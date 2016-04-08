@@ -7,33 +7,36 @@
 %<*readme>
 ----------------------------------------------------------------
 
-Russian language module for Babel, v1.3h
+Belarusian language module for Babel, v1.3h
 
 Released under the LaTeX Project Public License v1.3c or later.
 See http://www.latex-project.org/lppl.txt
 
-The package provides support for use of Babel in documents written in Russian
-(in both traditional and ancient forms). The support is adapted for use both
+The package provides support for use of Babel in documents written in Belarusian
+(in both official and "classic" forms). The support is adapted for use both
 under legacy TEX engines, and under X∃TEX and LuaTEX.
 
-The Current Maintainer is Igor A. Kotelnikov <kia999 at mail dot ru>.
+Based on Russian language module v1.3h by Igor A. Kotelnikov <kia999 at mail dot ru>
+and Belarusian language module v1.1l by Aleksey Novodvorsky <aen@logic.ru>.
+
+The Current Maintainer is Andrew Shadura <andrew@shadura.me>.
 
 
 1. INSTALLATION
 
-- unpack babel-russian.zip
-- run "xelatex.exe russianb.dtx" (recommended)
-  or "pdflatex.exe russianb.dtx";
-  run "tex.exe russianb.dtx"
-  or "tex.exe russianb.ins", if you don't need documentation
-- move "russianb.ldf" to <textmf>/tex/generic/babel/contrib/
-- move "russianb.pdf" and README to <textmf>/doc/latex/russian-babel/
+- unpack babel-belarusian.zip
+- run "xelatex.exe belarusianb.dtx" (recommended)
+  or "pdflatex.exe belarusianb.dtx";
+  run "tex.exe belarusianb.dtx"
+  or "tex.exe belarusianb.ins", if you don't need documentation
+- move "belarusianb.ldf" to <textmf>/tex/generic/babel/contrib/
+- move "belarusianb.pdf" and README to <textmf>/doc/latex/belarusian-babel/
 - update filename base (see documentation for your TeX system)
 
 
 2. USAGE
 
-Russian language definition file can be used both with legacy 8-bit engines
+Belarusian language definition file can be used both with legacy 8-bit engines
 (such as latex.exe or pdflatex.exe) and Unicode compilers (xelatex.exe or
 lualatex.exe). The Unicode engines can be ran either in Unicode mode or 8-bit
 compatibility mode, which emulates the legacy engines. The two modes differ by
@@ -49,20 +52,20 @@ In the examples below, it is assumed that a source file has utf8 input encoding.
 
     \usepackage[T1,T2A]{fontenc}
     \usepackage[utf8]{inputenc}
-    \usepackage[english,russian]{babel}
+    \usepackage[english,belarusian]{babel}
 
 2.1.2 LuaLaTeX
 
     \usepackage[T1,T2A]{fontenc}
     \usepackage[lutf8]{luainputenc}
-    \usepackage[english,russian]{babel}
+    \usepackage[english,belarusian]{babel}
 
 2.1.3 XeLaTeX
 
     \XeTeXinputencoding "bytes"
     \usepackage[utf8]{inputenc}
     \usepackage[T2A]{fontenc}
-    \usepackage[english,russian]{babel}
+    \usepackage[english,belarusian]{babel}
 
 2.2 Unicode mode, LuaLaTeX or XeLaTeX
 
@@ -71,26 +74,26 @@ In the examples below, it is assumed that a source file has utf8 input encoding.
         \setmainfont{CMU Serif}
         \setsansfont{CMU Sans Serif}
         \setmonofont{CMU Typewriter Text}
-    \usepackage[english,russian]{babel}
+    \usepackage[english,belarusian]{babel}
 
 Instead of the Computer Modern Unicode (CMU) fonts loaded in this example,
 you may use any True Type or Open Type fonts installed on your computer.
 
-2.3 Typesetting ancient book
+2.3 Using "classic" (Taraškievič) spelling
 
-    \usepackage[english,russian]{babel}
-    \languageattribute{russian}{ancient}
+    \usepackage[english,belarusian]{babel}
+    \languageattribute{belarusian}{classic}
 or
-    \usepackage[english,russian.ancient]{babel}
-
-Using Unicode mode is strongly recommended for typesetting ancient texts.
-Be sure to take X2 or OT2 font encodings when running 8-bit engine such
-as latex or pdflatex.
-
+    \usepackage[english,belarusian.classic]{babel}
+or
+    \usepackage[english,belarusian]{babel}
+    \languageattribute{belarusian}{tarask}
+or
+    \usepackage[english,belarusian.tarask]{babel}
 
 3. DOCUMENTATION
 
-See russianb.pdf for more information.
+See belarusianb.pdf for more information.
 
 
 4. KNOWN PROBLEMS
@@ -99,86 +102,15 @@ Before switching from a legacy 8-bit engine (tex, pdftex) to an Unicode
 engine (xetex, luatex) and vise versa delete all .aux, .toc, .lot, .lof
 files as they might have stored incompatible internal encodings.
 
-T2* font encodings do not have legacy Cyrillic letters `yat', which is
-hard-coded in ancient caption names. Be sure to use an Unicode engine
-or borrow `\cyryat` and `\CYRYAT` commands from X2 font encoding when setting
-the language attribute to "ancient", for example:
-
-    \usepackage[X2,T2A]{fontenc}
-    \usepackage[utf8]{inputenc}
-    \DeclareUnicodeCharacter{0462}{\CYRYAT}
-    \DeclareTextSymbolDefault{\CYRYAT}{X2}
-    \DeclareUnicodeCharacter{0463}{\cyryat}
-    \DeclareTextSymbolDefault{\cyryat}{X2}
-    \usepackage[english,russian.ancient]{babel}
-
-Consult your font documentation for other ancient glyphs which
-might be absent.
-
 
 5. CHANGES
 
-2016-02-18 version 1.3h
+2016-04-07 version 1.3h
 
-    * Bugs fixed in captions for revtex4 and revtex4-1 classes.
-
-    * \cyrdash is now faked using \ProvideTextCommandDefault rather
-      than \def.
-
-2015-05-01 version 1.3g
-
-    * Added support for revtex4 and revtex4-1 classes.
-
-2014-10-21 version 1.3f
-
-    * A documentation file russianb.pdf can now be generated by
-      running pdflatex.exe over russianb.dtx although xelatex.exe
-      is still recommended.
-
-    * russianb.ins was missed in version 1.3e.
-
-2014-10-14 version 1.3e
-
-    * Generating all stuff from single dtx file.
-
-2014-10-02 version 1.3d
-
-    * Bug fix in \Proj.
-
-2014-06-02 version 1.3c
-
-    * Bug fix in \daterussian.
-
-2013-04-06 version 1.3b
-
-    * Added support for the packages \pkg{listing}, \pkg{nomencl}, and
-      \pkg{nomentbl}.
-
-2013-04-18 version 1.3a
-
-    * Added the language attribute 'ancient' for typesetting old
-      Slavonic and Church books.
-
-2013-04-08 version 1.3
-
-    * Updated for babel 3.9.
-    * \Alph and \alph commands are not redefined any more by russianb.ldf.
-
-2012-06-02 version 1.2a
-
-    * russian/russianb.dtx, v1.2a : Indentation of 1st paragraph removed;
-      use the indentfirst package to automatically indent first paragraph
-      after sectioning commands.
-
-2011-10-20 version 1.2 Igor A. Kotelnikov  <kia999 at mail dot ru>
-
-    * Added support for LuaTeX and XeTeX;
-      added translation for Glossary; removed \Rus, \English,
-      \Eng, \cyrmath.., \latinencoding, \latintext;
-      \Russian is now an alias for \selectlanguage{russian}.
+    * Initial version
 
 Original source:  russianb.dtx,
-    2008/03/21 v1.1r Russian support from the babel system.
+    2016-02-18 v1.3h Russian support from the babel system.
 
 ----------------------------------------------------------------
 %</readme>
@@ -195,19 +127,21 @@ Original source:  russianb.dtx,
 \askforoverwritefalse
 \preamble
 ----------------------------------------------------------------
-Russian Language Support for the Babel package
-E-mail: kia999@mail.ru
+Belarusian Language Support for the Babel package
+E-mail: andrew@shadura.me
 Released under the LaTeX Project Public License v1.3c or later
 See http://www.latex-project.org/lppl.txt
 ----------------------------------------------------------------
 \endpreamble
 \postamble
 ----------------------------------------------------------------
-Copyright 2011-2014 Igor A. Kotelnikov.
+Copyright 2016 Andrew Shadura
+Copyright 2011-2016 Igor A. Kotelnikov.
+Copyright 2000 Aleksey Novodvorsky
 Copyright 1995-2008 Olga Lapko.
 Copyright 1989-2012 Johannes L. Braams.
 
-This file is a part of the Russian-Babel package.
+This file is a part of the Belarusian-Babel package.
 
 It may be distributed and/or modified under the
 conditions of the LaTeX Project Public License (LPPL), either
@@ -217,12 +151,12 @@ version.  The latest version of this license is in the file:
    http://www.latex-project.org/lppl.txt
 
 The package is "maintained" (as per LPPL maintenance status) by
-Igor A. Kotelnikov.
+Andrew Shadura.
 
-The package consists of the file  russianb.dtx
-and the derived files             russianb.ins,
-                                  russianb.ldf,
-                                  russianb.pdf,
+The package consists of the file  belarusianb.dtx
+and the derived files             belarusianb.ins,
+                                  belarusianb.ldf,
+                                  belarusianb.pdf,
                                   README.
 ----------------------------------------------------------------
 \endpostamble
@@ -233,12 +167,12 @@ and the derived files             russianb.ins,
 %</install>
 %<install>\endbatchfile
 %<*internal>
-\usedir{source/latex/babel-russian}
+\usedir{source/latex/babel-belarusian}
 \generate{
   \file{\jobname.ins}{\from{\jobname.dtx}{install}}
 }
 \nopreamble\nopostamble
-\usedir{doc/latex/babel-russian}
+\usedir{doc/latex/babel-belarusian}
 \generate{
   \file{README.}{\from{\jobname.dtx}{readme}}
 }
@@ -250,8 +184,8 @@ and the derived files             russianb.ins,
 %</internal>
 %<*code>
 \NeedsTeXFormat{LaTeX2e}
-%\ProvidesFile{russianb.ldf}[2016/02/18 1.3h Russian support for the Babel system]
-\ProvidesLanguage{russianb}[2016/02/18 1.3h Russian support for the Babel system]
+%\ProvidesFile{belarusianb.ldf}[2016/04/07 1.3h Belarusian support for the Babel system]
+\ProvidesLanguage{belarusianb}[2016/04/07 1.3h Belarusian support for the Babel system]
 %</code>
 %<*driver>
 \documentclass[a4paper]{ltxdoc}
@@ -274,22 +208,9 @@ and the derived files             russianb.ins,
 \else
     \usepackage[X2,T2A]{fontenc}
     \usepackage[utf8]{inputenc}
-    \DeclareUnicodeCharacter{0462}{\CYRYAT}
-    \DeclareTextSymbolDefault{\CYRYAT}{X2}
-    \DeclareUnicodeCharacter{0463}{\cyryat}
-    \DeclareTextSymbolDefault{\cyryat}{X2}
-    %% serbian letter, looks as a ligature IE, not defined anywhare
-    %\DeclareUnicodeCharacter{0464}{\CYRESHRT} % no surch cmd in X2
-    %% serbian letter, looks as a ligature ie, not defined anywhare
-    %\DeclareUnicodeCharacter{0465}{\cyreshrt} % no surch cmd in X2
-    %% therefor, we substitute it with є (#0454, \cyrie)
-    \DeclareUnicodeCharacter{0464}{\CYRIE}%
-    %\DeclareTextSymbolDefault{\CYRIE}{X2}
-    \DeclareUnicodeCharacter{0465}{\cyrie}%
-    %\DeclareTextSymbolDefault{\cyrie}{X2}
 \fi
-\usepackage[russian.ancient,main=english]{babel}
-%\languageattribute{russian}{ancient}
+\usepackage[belarusian.classic,main=english]{babel}
+%\languageattribute{belarusian}{classic}
 \usepackage[dvipsnames,usenames]{xcolor}
     \definecolor{thered}  {rgb}{0.65,0.04,0.07}
     \definecolor{thegreen}{rgb}{0.06,0.44,0.08}
@@ -338,22 +259,23 @@ and the derived files             russianb.ins,
      ,\languageshorthands,\useshorthands,\defineshorthand
      ,\AddBabelHook,\SetStringLoop,\SetCase,\AfterBabelLanguage
      ,\defaultfontfeatures,\setmainfont,\setsansfont,\setmonofont
-     ,\Russian,\cyrdash,\cdash
+     ,\Belarusian,\cyrdash,\cdash
      ,\cyr,\cyrillictext,\textcyrillic,\cyrillicencoding
-     ,\addto,\captionsrussian,\daterussian,\noextrasrussian,\extrasrussian
+     ,\addto,\captionsbelarusian,\datebelarusian,\noextrasbelarusian,\extrasbelarusian
      ,\languageattribute
      ,\Asbuk,\asbuk,\ch,\sh,\tg,\ctg,\arctg,\arcctg\,\th,\cth,\cosec
      ,\nod,\nok,\prog,\NOF\,\NOK,\Prog
-     ,\dq,\Proj,\nod,\NOD,\nok,\NOK,\Prob,\Variance
+     ,\dq,\Proj,\nad,\NAD,\nak,\NAK,\Prob,\Variance
+     ,\nod,\NOD,\nok,\NOK
      ,\XeTeXinputencoding
     }
     ,keywordstyle=[0]\color{thered}
-    ,keywords=[1]{main,russian,english,german,frenchb
+    ,keywords=[1]{main,belarusian,english,german,frenchb
      ,shorthands,extrasenglish
      ,stringprocess,afterextras
      ,soft,empty,nobreak,hard
      ,Renderer,Ligatures
-     ,modern,ancient
+     ,official,classic,tarask
      ,T1,T2A,lutf8,utf8
      ,fontspec,babel,inputenc,fontenc
      },
@@ -397,22 +319,22 @@ and the derived files             russianb.ins,
 %</driver>
 % \fi
 %
-%\GetFileInfo{russianb.dtx}
-%\GetFileInfo{russianb.ldf}
+%\GetFileInfo{belarusianb.dtx}
+%\GetFileInfo{belarusianb.ldf}
 %
 %\title{^^A
-%  \textsf{Russian} --- description text\thanks{^^A
+%  \textsf{Belarusian} --- description text\thanks{^^A
 %    This file describes version \fileversion, last revised \filedate.^^A
 %  }^^A
 %}
 %\author{^^A
 %  You\thanks{E-mail: you@your.domain}^^A
 %}
-% \title{The Russian Language\\
+% \title{The Belarusian Language\\
 %  in the \babel\ system\\[0.5em]
 %  \large Version \fileversion}
 %
-% \author{Igor A. Kotelnikov\footnote{E-mail: \href{mailto:kia999@mail.ru}{kia999 at mail dot ru}.}}
+% \author{Andrew Shadura\footnote{E-mail: \href{mailto:andrew@shadura.me}{andrew@shadura.me}.}}
 %
 % \date{Released \filedate}
 %
@@ -421,19 +343,21 @@ and the derived files             russianb.ins,
 % {\small\tableofcontents}
 %
 %
-% \section{The Russian Language Definition File}
+% \section{The Belarusian Language Definition File}
 %
 % The file \file{\filename}\footnote{The file described in this document
 % has the version number \fileversion\ and was last revised on \filedate.}
-% is the source file for the Russian Language Definition file
-% \file{russianb.ldf} to be loaded by the \babel\ package with
-% the option \Lopt{russian}. It was derived by Igor A.
-% Kotelnikov from the original version of \file{\filename}, first
+% is the source file for the Belarusian Language Definition file
+% \file{belarusianb.ldf} to be loaded by the \babel\ package with
+% the option \Lopt{belarusian}. It's based on the Russian language definition
+% file derived by Igor A. Kotelnikov from the original version of \file{\filename}, first
 % released by Olga Lapko and Johannes Braams and then
 % adapted to the T2* and X2 Cyrillic encodings
-% by Vladimir Volovich  and Werner Lemberg.
+% by Vladimir Volovich and Werner Lemberg, and the Belarusian language definition
+% file written by Aleksey Novodvorsky based on even older version of the Russian
+% language definition file.
 %
-% Starting the version 1.2, \file{russianb.ldf} is designed to work both with
+% Just like \file{russianb.ldf}, \file{belarusianb.ldf} is designed to work both with
 % legacy non-unicode (8-bit) and new Unicode encodings of the source document
 % files (input encodings) and of the font files (font encodings). This is
 % achieved by excluding (bypassing) the |\cyr...| macros, which map every letter
@@ -444,14 +368,14 @@ and the derived files             russianb.ins,
 % few obsolete and controversial macros has been eliminated in first public
 % release of version 1.2 of \file{russianb.ldf}.
 %
-% The version 1.3 of \file{russianb.ldf} has been adapted to new features
-% introduced in the version 3.9 of the \pkg{babel} package. In particular, the
-% language attribute \Lopt{ancient} has been introduced to support typesetting
-% ancient and Church Slavonic books.
+% Similarly to \file{russianb.ldf}'s support for typesetting ancient and
+% Church Slavonic books, \file{belarusianb.ldf} supports two versions of Belarusian
+% orthography, the official one (\Lopt{official}) and the ‘classic’ (Taraškievič)
+% orthography.
 %
 % \section{Usage}
 %
-% Typesetting Russian texts implies that a special input and output
+% Typesetting Belarusian texts implies that a special input and output
 % encodings should be used. Input encodings are those which are used in source
 % (\file{.tex}) file. Output encoding is also known as the font encoding. It is
 % implemented within the font files.
@@ -470,7 +394,7 @@ and the derived files             russianb.ins,
 % different packages should be loaded for those compilers.
 %
 % Since earlier versions \pkg{babel} did not
-% support Xe\LaTeX\ (at least for some languages including Russian), the
+% support Xe\LaTeX\ (at least for some languages including Belarusian), the
 % \pkg{polyglossia} package was generally recommended in the past for
 % use with Xe\LaTeX\ as a replacement for \pkg{babel}. Nowadays, \pkg{babel}
 % can be used with any engines, including \LaTeX, PDF\LaTeX, Lua\LaTeX, and
@@ -486,23 +410,22 @@ and the derived files             russianb.ins,
 % \begin{verbatim}
 %    \usepackage[T1,T2A]{fontenc}
 %    \usepackage[utf8]{inputenc}
-%    \usepackage[english,russian]{babel}
+%    \usepackage[english,belarusian]{babel}
 %\end{verbatim}
 % Some variations in the order of loading the packages are allowed in this case
 % but it is better to follow one and the same convention at all circumstances:
 % the \pkg{babel} package should go last, and \pkg{fontenc} must be the first.
 %
 % Input encoding should be declared as option to the \pkg{inputenc}
-% package. Known Cyrillic encodings include \texttt{cp866} (MS DOS),
+% package. Known Cyrillic encodings include
 % \texttt{cp1251} (Windows), \texttt{koi8-u} (UNIX) and their variants.
 % Nowadays, this list is appended with \texttt{utf8} input encoding.
 %
 % Output encodings (also known as font encodings) are declared as options to
 % the \pkg{fontenc} package. Known Cyrillic encodings are \texttt{T2A},
 % \texttt{T2B}, \texttt{T2C}, \texttt{LCY},  and \texttt{X2};
-% \texttt{LWN} is excluded from Russian support stating version 1.2 of
-% \file{\filename} since \texttt{LWN} is excluded from the \pkg{cyrillic}
-% bundle of related files.
+% \texttt{LWN} is not supported since \texttt{LWN} has been excluded
+% from the \pkg{cyrillic} bundle of related files.
 %
 %
 % \subsection{Lua\LaTeX}
@@ -516,7 +439,7 @@ and the derived files             russianb.ins,
 %\begin{verbatim}
 %\usepackage[T1,T2A]{fontenc}
 %\usepackage[lutf8]{luainputenc}
-%\usepackage[english,russian]{babel}
+%\usepackage[english,belarusian]{babel}
 %\end{verbatim}
 % The order of the packages is crucial for Lua\LaTeX\ in 8-bit mode. Since both
 % \pkg{luainputenc} and \pkg{babel} should know what is a selected font encoding,
@@ -539,7 +462,7 @@ and the derived files             russianb.ins,
 %  \setmainfont{CMU Serif}
 %  \setsansfont{CMU Sans Serif}
 %  \setmonofont{CMU Typewriter Text}
-%\usepackage[english,russian]{babel}
+%\usepackage[english,belarusian]{babel}
 %\end{verbatim}
 % The |\defaultfontfeatures| declares default font features for subsequent
 % |\setmainfont| (which sets romanic fonts), |\setsansfont| (sans-serif) and
@@ -550,7 +473,7 @@ and the derived files             russianb.ins,
 %    \setmainfont[Renderer=Basic,Ligatures={TeX}]{CMU Serif}
 %    \setsansfont[Renderer=Basic,Ligatures={TeX,Historic}]{CMU Sans Serif}
 %    \setmonofont{CMU Typewriter Text}
-% \usepackage[english,russian]{babel}
+% \usepackage[english,belarusian]{babel}
 %\end{verbatim}
 % Here |Renderer=Basic,Ligatures={TeX}| activates ligatures which are existed
 % in \LaTeX.
@@ -561,7 +484,7 @@ and the derived files             russianb.ins,
 % can be set as a value of the |main| option as follows
 %\begin{verbatim}
 % \usepackage{fontspec}
-% \usepackage[english,main=russian,german]{babel}
+% \usepackage[english,main=belarusian,german]{babel}
 %\end{verbatim}
 % %\unskip
 %
@@ -577,7 +500,7 @@ and the derived files             russianb.ins,
 % \XeTeXinputencoding "bytes"
 % \usepackage[utf8]{inputenc}
 % \usepackage[T2A]{fontenc}
-% \usepackage[english,russian]{babel}
+% \usepackage[english,belarusian]{babel}
 %\end{verbatim}
 % \unskip
 % Xe\TeX\ can use a different input encoding but it always uses the Unicode
@@ -595,78 +518,79 @@ and the derived files             russianb.ins,
 %    \setmainfont{CMU Serif}
 %    \setsansfont{CMU Sans Serif}
 %    \setmonofont{CMU Typewriter Text}
-% \usepackage[english,russian]{babel}
+% \usepackage[english,belarusian]{babel}
 %\end{verbatim}
 % %\unskip
 %
 %
-% \subsection{Modern and Ancient spelling}
-% \label{ssec:speeling}
+% \subsection{Official and ‘classic’ spelling}
+% \label{ssec:spelling}
 %
-% By default, a modern spelling is enabled. For Church Slavonic and other old books
-% ancient spelling can be enabled by setting the attribute to \Lopt{ancient}. To set
-% an attribute, put the |\languageattribute| macro within a document preamble after
-% \babel, for example,
+% By default, the official spelling is enabled. The ‘classic’ (Taraškievič)
+% ancient spelling can be enabled by setting the attribute to \Lopt{classic} or
+% \Lopt{tarask}. To set an attribute, put the |\languageattribute| macro
+% within a document preamble after \babel, for example,
 %\begin{verbatim}
-% \usepackage[english,russian]{babel}
-% \languageattribute{russian}{ancient}
+% \usepackage[english,belarusian]{babel}
+% \languageattribute{belarusian}{classic}
 %\end{verbatim}
-% Setting the \Lopt{ancient} attribute changes the built-in strings (caption names)
-% and a date format. For example, the bibliography will be entitled as
-% `\textcyrillic{Литература}' by default and as `\textcyrillic{Библіографія}' if the
-% Russian language attribute is set to \Lopt{ancient}.
-% Same result can be achieved using a modifier as follows:
+% Setting the \Lopt{classic} attribute changes the built-in strings (caption names)
+% and a date format. For example, the references list will be entitled as
+% `\textcyrillic{Спіс літаратуры}' by default and as `\textcyrillic{Сьпіс літаратуры}' if the
+% Belarusian language attribute is set to \Lopt{classic}.
+% The same result can be achieved using a modifier as follows:
 %\begin{verbatim}
-%\usepackage[english,russian.ancient]{babel}
+%\usepackage[english,belarusian.classic]{babel}
 %\end{verbatim}
 % Using a modifier in a package option is often better. A modifier is set after
 % the language name, and is prefixed with a dot (only when the language is set
-% as package option – neither global options nor the main key accept them).
+% as package option, neither global options nor the main key accept them).
 %
+% Both attributes \Lopt{classic} and \Lopt{tarask} may be used interchangeably.
 %
 %\section{User's commands}
 %
 % In a multilingual document, some typographic rules are language
 % dependent and should apply to the whole document.
 %
-%^^AAs of version~1.2, \file{russianb.ldf} behaves differently
+%^^AAs of version~1.2, \file{belarusianb.ldf} behaves differently
 %^^Aaccording to \babel's \emph{main language} defined as the \emph{last}
-%^^Aoption. When Russian is
+%^^Aoption. When Belarusian is
 %^^A|babel|'s main language, it adjusts global layout of the document
-%^^Aaccording to typographical conventions of Russian language. Namely,
-%^^A\file{russianb.ldf} makes the following changes to global layout even
-%^^Ain the parts where Russian is not current language:
+%^^Aaccording to typographical conventions of Belarusian language. Namely,
+%^^A\file{belarusianb.ldf} makes the following changes to global layout even
+%^^Ain the parts where Belarusian is not current language:
 %^^A\begin{enumerate}
 %^^A\item
 %^^A    the first paragraph of any section becomes indented (\LaTeX{} only).
 %^^A    (this is obsolete statement starting from version 1.2a)
 %^^A\end{enumerate}
 %
-% Regarding local typography, the macro |\selectlanguage{russian}|
-% switches to the Russian language, with the following effects:
+% Regarding local typography, the macro |\selectlanguage{belarusian}|
+% switches to the Belarusian language, with the following effects:
 % \begin{enumerate}
-% \item Russian hyphenation patterns are made active;
-% \item |\today| prints the date in Russian;
-% \item the caption names are translated into Russian
+% \item Belarusian hyphenation patterns are made active;
+% \item |\today| prints the date in Belarusian;
+% \item the caption names are translated into Belarusian
 %      (\LaTeX{} only);
-% \item emdash typed by the ligature |---| might be 20\% shorter when Russian
+% \item emdash typed by the ligature |---| might be 20\% shorter when Belarusian
 % is the current language; the result depends on the current encoding; |---|
 % always produce long emdash in Lua\TeX\ and Xe\TeX\ since these engines
 % use same encodings for all languages;
-% \item emdash typed by the ligature |"---| in Russian is 20\% shorter, however
+% \item emdash typed by the ligature |"---| in Belarusian is 20\% shorter, however
 % the ligature |"---| might not be defined in other languges; a
 %      shorter emdash (i.e. |\cyrdash|) can be typeset in any language using
-%      special macros enlisted in table \ref{tab:russian-quote}.
+%      special macros enlisted in table \ref{tab:belarusian-quote}.
 % \end{enumerate}
 %
-% By default, a modern spelling is used for built-it strings (caption names) and
-% the date. The spelling can be reverted to ancient by setting the language
-% attribute to \Lopt{ancient} in the document preamble as discussed in
-% Sec.~\ref{ssec:speeling}.
+% By default, the official spelling is used for built-it strings (caption names) and
+% the date. The spelling can be reverted to the classic one by setting the language
+% attribute to \Lopt{classic} in the document preamble as discussed in
+% Sec.~\ref{ssec:spelling}.
 %
-% Since Russian has its own numbering system, \file{russianb.ldf} adds macros
+% Since Belarusian has its own numbering system, \file{belarusianb.ldf} adds macros
 % |\asbuk|\marg{counter} and |\Asbuk|\marg{counter} for formatting numbers appropriately the alphabetic
-% sequence in the Russian alphabet. Additional commands are provided
+% sequence in the Belarusian alphabet. Additional commands are provided
 % to typeset quotes:
 % \begin{enumerate}
 % \item French quotation marks can be entered using the commands
@@ -676,21 +600,21 @@ and the derived files             russianb.ins,
 %      |\glqq| and |\grqq| which work in \LaTeXe\ and Plain\TeX.
 % \end{enumerate}
 %
-% The macro |\Russian| is now defined as an alias for
-% |\selectlanguage{russian}|, and its ``opponent'' |\English|, existed
-% in \file{russianb.ldf} prior to version 1.2 has been removed since the Russian
+% The macro |\Belarusian| is now defined as an alias for
+% |\selectlanguage{belarusian}|, and its ``opponent'' |\English|, existed
+% in \file{belarusianb.ldf} prior to version 1.2 has been removed since the Belarusian
 % language definition file is wrong place for definition of macros which
 % switch to a distinct other language.
 %
 % The macro |\textcyrillic|\marg{text} is intended to typeset small chunks of text
-% in Russian; it is essentially an alias for |\foreignlanguage{russian}|\marg{text}.
+% in Belarusian; it is essentially an alias for |\foreignlanguage{belarusian}|\marg{text}.
 %
 %
 % \subsection{Active character}
 %
-% Table~\ref{tab:russian-quote} shows macros and active string which can be
+% Table~\ref{tab:belarusian-quote} shows macros and active string which can be
 % used to typeset various dashes and quotes.
-% In the Russian language, the character |"| is made active. It can be
+% In the Belarusian language, the character |"| is made active. It can be
 % considered as second escape character in addition to |\|. Some dashes and
 % all quotes can be typed using both active character |"| and ordinary
 % macros as indicated in the table. However, some shorthanded hyphenations
@@ -698,7 +622,7 @@ and the derived files             russianb.ins,
 %
 % \begin{table}[ht]\centering
 %  \caption{Extra definitions made
-%           by \file{russianb.ldf}}\label{tab:russian-quote}
+%           by \file{belarusianb.ldf}}\label{tab:belarusian-quote}
 %  \medskip
 %  \begin{tabular}{llp{7cm}}
 %  \hline\hline\\[-0.5em]
@@ -750,7 +674,7 @@ and the derived files             russianb.ins,
 %
 % \medskip
 %
-% The quotation marks traditionally used in Russian were borrowed from
+% The quotation marks traditionally used in Belarusian were borrowed from
 % other languages (e.g., French and German) so they keep their original
 % names.
 %
@@ -769,7 +693,7 @@ and the derived files             russianb.ins,
 % By default, active double quote is switched on. It can be switched off
 % any time using |\shorthandoff{"}| and the switched on again using
 % |\shorthandon{"}|. The aliases |\mdqoff| and |\mdqon| for these two macros
-% has been removed from \file{russianb.ldf} starting from version 1.3 in favour of
+% has been removed from \file{belarusianb.ldf} starting from version 1.3 in favour of
 % the macros |\shorthandon| and |\shorthandoff| provided in the \pkg{babel} core.
 %
 %
@@ -777,13 +701,13 @@ and the derived files             russianb.ins,
 %
 % \file{\filename} defines few macros than can be used independently
 % of current language. These are 9 macros to be used in math mode to type
-% the names of trigonometric functions common for Russian documents:
+% the names of trigonometric functions common for Belarusian documents:
 % |\sh|, |\ch|, |\tg|, |\ctg|, |\arctg|, |\arcctg|, |\th|, |\cth|, and
 % |\cosec|. Cyrillic letters in math mode can be typed with the aid of
 % text commands such as |\textbf|, |\textsf|, |\textit|, |\texttt|, e.t.c.
 %
-% The macros |\Prob|, |\Variance|, |\NOD|, |\nod|, |\NOK|, |\nok|, |\Proj|
-% print  some rare Russian mathematical symbols.
+% The macros |\Prob|, |\Variance|, |\NAD|, |\nad|, |\NAK|, |\nak|, |\Proj|
+% print  some rare Belarusian mathematical symbols.
 %
 %
 %    \section{\TeX{}nical details}
@@ -791,8 +715,8 @@ and the derived files             russianb.ins,
 %    The packages \pkg{inputenc} and  \pkg{luainputenc}
 %    make Cyrillic letters active so that a compiler converts them into
 %    corresponding |\cyr...| macro at compilation time.
-%    For example, Russian letter `a' matches
-%    macro |\cyra|, and capital Russian letter `A' matches |\CYRA|. The
+%    For example, Belarusian letter `a' matches
+%    macro |\cyra|, and capital Belarusian letter `A' matches |\CYRA|. The
 %    package \pkg{fontenc} then matches every macro |\cyr...| to corresponding
 %    glyph in a font file depending on a declared font encoding.
 %
@@ -808,7 +732,7 @@ and the derived files             russianb.ins,
 %    overcame in the version 1.2. Those users who used |\selectlanguage| macro,
 %    defined in the core \pkg{babel} system, to switch between
 %    different languages should not worry. However, the macros
-%    |\Russian|, |\Englsih| and their aliases |\Rus|, |\cyr|,
+%    |\Belarusian|, |\Englsih| and their aliases |\Rus|, |\cyr|,
 %    |\Eng| are modified or removed as they did not
 %    conform the mechanism of language switching encoded into the
 %    core of \pkg{babel} and therefore can mess it.
@@ -820,145 +744,11 @@ and the derived files             russianb.ins,
 %    engine (xetex, luatex) and vise versa delete all |.aux|, |.toc|, |.lot|,
 %    |.lof| files as they might have stored incompatible internal encodings.
 %
-%    T2* font encodings do not have old Slavonic letter `yat' (Ѣ, ѣ), which is
-%    hard-coded in ancient caption names. Be sure to use an Unicode engine
-%    or borrow |\cyryat| and |\CYRYAT| commands from X2 font encoding when setting
-%    the language attribute to ``ancient'', for example:
-%
-%\begin{verbatim}
-%\usepackage[X2,T2A]{fontenc}
-%\usepackage[utf8]{inputenc}
-%\DeclareUnicodeCharacter{0462}{\CYRYAT}
-%\DeclareTextSymbolDefault{\CYRYAT}{X2}
-%\DeclareUnicodeCharacter{0463}{\cyryat}
-%\DeclareTextSymbolDefault{\cyryat}{X2}
-%\usepackage[english,russian.ancient]{babel}
-%\end{verbatim}
-%
-%    None of Cyrillic font encoding has `iotated E' (Ѥ, ѥ). When running legacy
-%    engines you are advices to substitute it with |\CYRIE|, |\cyrie| (Є, є):
-%
-%\begin{verbatim}
-%\DeclareUnicodeCharacter{0464}{\CYRIE}
-%\DeclareUnicodeCharacter{0465}{\cyrie}
-%\end{verbatim}
-%
 %    \cs{cyrdash} might produce dashes of different width in same document after
-%    switching to/from Russian language if the document is compiled with legacy
+%    switching to/from Belarusian language if the document is compiled with legacy
 %    engines.
 %
 % \section{History}
-%
-% \subsection*{Changes in version 1.3h}
-% \begin{itemize}
-% \item
-% \cs{cyrdash} is now faked via \cs{ProvideTextCommandDefault} rather than
-% \cs{def}.
-% \item
-% Bugs fixed in captions for \cls{revtex4.cls} and \cls{revtex4-1.cls}.
-% \end{itemize}
-%
-% \subsection*{Changes in version 1.3g}
-% \begin{itemize}
-% \item
-% Added support for \cls{revtex4} and \cls{revtex4-1} classes.
-% \end{itemize}
-%
-% \subsection*{Changes in version 1.3f}
-% \begin{itemize}
-% \item
-%  A documentation file russianb.pdf can now be generated by
-%  running \file{pdflatex.exe} over \file{russianb.dtx} although
-%  \file{xelatex.exe} is still recommended.
-% \item
-% \file{russianb.ins} was missed in version 1.3e.
-% \end{itemize}
-%
-% \subsection*{Changes in version 1.3e}
-% \begin{itemize}
-% \item
-%  All stuff is now generated from single \file{dtx} file.
-% \end{itemize}
-%
-% \subsection*{Changes in version 1.3d}
-% \begin{itemize}
-% \item
-%  Bug fix in |\Proj|.
-% \end{itemize}
-%
-% \subsection*{Changes in version 1.3c}
-% \begin{itemize}
-% \item
-%  Bug fix in |\daterussian|.
-% \end{itemize}
-%
-% \subsection*{Changes in version 1.3b}
-% \begin{itemize}
-% \item
-%  Added support for the packages \pkg{listing}, \pkg{nomencl}, and
-%  \pkg{nomentbl}.
-% \end{itemize}
-%
-% \subsection*{Changes in version 1.3a}
-% \begin{itemize}
-% \item
-%  ^^AAdded the Russian language attributes \Lopt{modern} (default) and
-%  ^^A\Lopt{ancient} (for typesetting ancient slavonic books).
-%  Added the Russian language attribute \Lopt{ancient} for typesetting
-%  ancient slavonic books.
-%\end{itemize}
-%
-% \subsection*{Changes in version 1.3}
-% \begin{itemize}
-% \item
-%  Updated for babel 3.9.
-% \item
-%  The |\alph| and |\Alph| commands are not redefined any more by the
-%  \file{russianb.ldf}.
-% \end{itemize}
-%
-% \subsection*{Changes in version 1.2a}
-% \begin{itemize}
-% \item
-%  Indentation of the first paragraph after sectioning command has been removed.
-%  Use \pkg{indentfirst} to make first paragraph indented.
-% \end{itemize}
-%
-% \subsection*{Changes in version 1.2}
-%
-% \begin{itemize}
-% \item
-%  Font encoding \texttt{LWN} is not supported any more.
-% \item
-%  Macros |\Rus|, |\English|, |\Eng| have been removed.
-%  |\Russian| is now alias of |\selectlanguage{russian}|.
-%  Former definition of |\Russian| is preserved in the macros
-%  |\cyrillictext| and |\cyr| which should not be used at user
-%  level.
-% \item
-%  Lua\LaTeX\ and Xe\LaTeX\ are now supported;
-%  |\cyr...| commands are bypassed if Lua\LaTeX\ or Xe\LaTeX\ run.
-%^^A\item
-%^^A  First paragraph after section command is indented over the entire
-%^^A  document if \Lopt{russian} is the last option of \pkg{babel} and,
-%^^A  hence, Russian is the main language.
-% \item
-%  The shorthands |"<| and |">| are redefined; now they match
-%  |\guillemotleft| and |\guillemotright|, respectively, rather than
-%  |\flqq| and |\frqq|.
-% \item
-%  Definitions of |\latinencoding| and  |\latintext| are removed
-%  since these macros are defined in \file{babel.def}.
-% \item
-%  |\cyrmathbf|, |\cyrmathsf|, |\cyrmathit|, and |\cyrmathtt| commands
-%  are removed; they do work in math mode; instead of them it is advised to use corresponding
-%  |\text..| command.
-% \item
-%  The macro |\No| is removed since the Cyrillic number sign is available
-%  on keyboard and can also be typed using the |\textnumero| macro.
-% \item
-%  Added translation for Glossary.
-% \end{itemize}
 %
 %\StopEventually{^^A
 %  \setlength{\postmulticols}{100pt} % 20pt by default
@@ -975,9 +765,9 @@ and the derived files             russianb.ins,
 %
 % \changes{1.3e}{2014/10/14}{Update documentation}
 % \changes{1.3d}{2014/10/02}{Fix bug in \cs{Proj}}
-% \changes{1.3c}{2014/06/02}{Fix bug in \cs{daterussian}}
-% \changes{1.3b}{2013/04/06}{Renamed to russianb to work with babel 3.9}
-% \changes{1.2b}{2013/01/08}{Renamed to russianu to work with babel-beta 3.9}
+% \changes{1.3c}{2014/06/02}{Fix bug in \cs{datebelarusian}}
+% \changes{1.3b}{2013/04/06}{Renamed to belarusianb to work with babel 3.9}
+% \changes{1.2b}{2013/01/08}{Renamed to belarusianu to work with babel-beta 3.9}
 % \changes{1.2a}{2012/06/06}{Indentation of 1st paragraph removed}
 % \changes{1.1c}{1996/07/11}{Replaced \cs{undefined} with
 %    \cs{@undefined} and \cs{empty} with \cs{@empty} for consistency
@@ -1004,7 +794,7 @@ and the derived files             russianb.ins,
 % \changes{1.1e}{1996/12/29}{Added closing brace to second
 %    argument of \cs{LdfInit}}
 %    \begin{macrocode}
-\LdfInit{russian}{captionsrussian}
+\LdfInit{belarusian}{captionsbelarusian}
 %    \end{macrocode}
 %
 %    First, we check if Lua\LaTeX\ or Xe\LaTeX\ is running. If so, we set
@@ -1024,7 +814,7 @@ and the derived files             russianb.ins,
 %    \begin{macrocode}
 \ifdefined\if@uni@ode
   \PackageError{babel}{if@uni@ode already defined.\MessageBreak
-    Please contact author of russianb.ldf}
+    Please contact author of belarusianb.ldf}
   \relax
 \fi
 \newif\if@uni@ode
@@ -1032,18 +822,18 @@ and the derived files             russianb.ins,
 \ifdefined\XeTeXrevision \@uni@odetrue \fi\fi
 %    \end{macrocode}
 %
-%    Check if hyphenation patterns for the Russian language have been
+%    Check if hyphenation patterns for the Belarusian language have been
 %    loaded in \file{language.dat}. Namely, we check for the existence of
-%    |\l@russian|. If it is not defined, we declare Russian as dialect
+%    |\l@belarusian|. If it is not defined, we declare Belarusian as dialect
 %    for the default language number 0 which almost for sure is English.
 %
 %    \begin{macrocode}
-\ifx\l@russian\@undefined
-  \@nopatterns{Russian}
-  \adddialect\l@russian0
+\ifx\l@belarusian\@undefined
+  \@nopatterns{Belarusian}
+  \adddialect\l@belarusian0
 \fi
 %    \end{macrocode}
-%    Now |\l@russian| is always defined.
+%    Now |\l@belarusian| is always defined.
 %
 %    \subsection{Output encoding}
 %
@@ -1053,9 +843,9 @@ and the derived files             russianb.ins,
 %    package in case of \LaTeX\ and by \pkg{fontspec} package in case of
 %    Lua\LaTeX. It matters weather these packages are loaded before of after
 %    \pkg{babel}. In the latter case or if these packages are not loaded at all,
-%    \file{russianb.ldf} ignores their effect and tries to provide some
+%    \file{belarusianb.ldf} ignores their effect and tries to provide some
 %    reasonable settings. In particular, \texttt{T2A} will be selected for
-%    Russian language if \LaTeX\ is running but \texttt{EU1} in case of
+%    Belarusian language if \LaTeX\ is running but \texttt{EU1} in case of
 %    Xe\LaTeX\ and \texttt{EU2} in case of Lua\LaTeX.
 %
 %  \begin{macro}{\latinencoding}
@@ -1066,21 +856,21 @@ and the derived files             russianb.ins,
 %    for late loading \pkg{fontenc}. Therefore it does not matter
 %    whether \pkg{babel} is loaded before or after the \pkg{fontenc}.
 %    As of version 1.2, definition of |\latinencoding| was removed from
-%    \file{russianb.ldf} since it is overruled in \file{babel.def}.
+%    \file{belarusianb.ldf} since it is overruled in \file{babel.def}.
 %    For example, after
 %\begin{verbatim}
 %\usepackage[T1,T2A]{fontenc}
-%\usepackage[english,russian]{babel}
+%\usepackage[english,belarusian]{babel}
 %\end{verbatim}%
 %    as well as after
 %\begin{verbatim}
-%\usepackage[english,russian]{babel}
+%\usepackage[english,belarusian]{babel}
 %\usepackage[T1,T2A]{fontenc}
 %\end{verbatim}%
 %    |\latinencoding| will be set to \texttt{T1}.
 %    After
 %\begin{verbatim}
-%\usepackage[english,russian]{babel}
+%\usepackage[english,belarusian]{babel}
 %\end{verbatim}%
 %    |\latinencoding| will be \texttt{OT1}.
 %
@@ -1113,10 +903,10 @@ and the derived files             russianb.ins,
 %    to use another font encoding rather than default (\texttt{T2A}),
 %    he has to load the corresponding file \emph{before} \file{babel.sty}.
 %
-%    Remember that for the Russian language, the \texttt{T2A} encoding is
+%    Remember that for the Belarusian language, the \texttt{T2A} encoding is
 %    better than \texttt{X2}, because \texttt{X2} does not contain Latin
 %    letters, and users should be very careful to switch the language
-%    every time they want to typeset a Latin word inside a Russian phrase
+%    every time they want to typeset a Latin word inside a Belarusian phrase
 %    or vice versa.
 %
 %
@@ -1190,19 +980,19 @@ and the derived files             russianb.ins,
 %    As final wisdom, we repeat |\@setcyrillicencoding| at |\begin{document}|
 %    time. We could not avoid previous call to |\@setcyrillicencoding| since
 %    compiler scan \file{.aux} file before it executes delayed code, and
-%    \file{.aux} may contain |\set@langauge{russian}|; the latter rises an
+%    \file{.aux} may contain |\set@langauge{belarusian}|; the latter rises an
 %    error if |\cyrillicencoding| would not be defined by that time.
 %    \begin{macrocode}
   \AtBeginDocument{\@setcyrillicencoding}
 \fi
 %    \end{macrocode}
 %
-%  \Describe\Russian{}
+%  \Describe\Belarusian{}
 %  \DescribeOther\cyr{}
 %  \DescribeOther\cyrillictext{}
-%    For the sake of backward compatibility we keep the macro |\Russian|
-%    but redefine its meaning; now  |\Russian| is simply an alias for
-%    |\selectlanguage{russian}|.
+%    For the sake of backward compatibility we keep the macro |\Belarusian|
+%    but redefine its meaning; now  |\Belarusian| is simply an alias for
+%    |\selectlanguage{belarusian}|.
 %
 %    We define |\cyrillictext| and its alias |\cyr| but remove another alias
 %    |\Rus|; these macros are intended for use within \texttt{babel} macros and
@@ -1223,18 +1013,18 @@ and the derived files             russianb.ins,
 %
 %    Due to any of these reasons the use of the declaration |\cyrillictext| and
 %    its aliases in ordinary text is strongly discouraged. Instead of the
-%    declaration |\cyrillictext| it is recommended to use |\Russian| or the
+%    declaration |\cyrillictext| it is recommended to use |\Belarusian| or the
 %    command |\foreignlanguage| defined in the \pkg{babel} core; their
-%    functionality is similar to |\selectlanguage{russian}| but they did not
+%    functionality is similar to |\selectlanguage{belarusian}| but they did not
 %    switch caption names, dates and shorthands.
 %
 %    \begin{macrocode}
-\DeclareRobustCommand{\Russian}{\selectlanguage{\russian}}
+\DeclareRobustCommand{\Belarusian}{\selectlanguage{\belarusian}}
 \DeclareRobustCommand{\cyrillictext}{%
   \fontencoding\cyrillicencoding\selectfont
   \let\encodingdefault\cyrillicencoding
-  \expandafter\set@hyphenmins\russianhyphenmins
-  \language\l@russian}%
+  \expandafter\set@hyphenmins\belarusianhyphenmins
+  \language\l@belarusian}%
 \let\cyr\cyrillictext
 %    \end{macrocode}
 %
@@ -1242,7 +1032,7 @@ and the derived files             russianb.ins,
 %    aliases. We believe that reasonable place for defining these macros
 %    would be \file{englishb.ldf}.
 %    Note also that the macro |\English| and its  alias |\Eng| are absent
-%    in \file{russianb.ldf}'s counterpart in the package \pkg{polyglossia},
+%    in \file{belarusianb.ldf}'s counterpart in the package \pkg{polyglossia},
 %    analog of \pkg{babel} for Xe\LaTeX.
 %
 % \changes{1.2}{2011/10/20}{Removed \cs{English} macro}
@@ -1303,7 +1093,7 @@ and the derived files             russianb.ins,
 %
 %    The macro |\textcyrillic| takes an argument which is then typeset using the
 %    requested font encoding. It is thus an equivalent or
-%    |\foreignlangauge{russian}|.
+%    |\foreignlangauge{belarusian}|.
 % \changes{1.1o}{2003/10/12}{\cs{textlatin} already defined
 %    by the core of babel}
 %    \begin{macrocode}
@@ -1319,7 +1109,7 @@ and the derived files             russianb.ins,
 %    the \pkg{inputenc} package should be  explicitly called by
 %    |\usepackage{inputenc}| \emph{before} \pkg{babel}.
 %    Note however that default font encoding \texttt{T2A} fits
-%    well enough to Russian version of Windows ANSI encoding which is almost
+%    well enough to Belarusian version of Windows ANSI encoding which is almost
 %    equivalent to \texttt{cp1251}.
 %
 %    \textsc{Should we wrap this chunk into At Begin document?}
@@ -1343,7 +1133,7 @@ and the derived files             russianb.ins,
           \def\reserved@a{EU2}%
           \ifx\reserved@a\cyrillicencoding\else
              \PackageWarning{babel}%
-                {No input encoding specified for Russian language}
+                {No input encoding specified for Belarusian language}
     \fi\fi\fi
   %\fi
 }
@@ -1353,7 +1143,7 @@ and the derived files             russianb.ins,
 %    \subsection{Shorthands}
 %
 %    The double quote  character \texttt{"} is declared to be active in
-%    Russian language.
+%    Belarusian language.
 %
 % \changes{1.1a}{1995/03/07}{Use the new mechanism for dealing
 %    with active characters}
@@ -1380,7 +1170,7 @@ and the derived files             russianb.ins,
 %
 %  \Describe\dq{}
 %    The active character |"| is used as indicated in
-%    table~\ref{tab:russian-quote}. We save the original double quote
+%    table~\ref{tab:belarusian-quote}. We save the original double quote
 %    character in the |\dq| macro to keep it available.
 %    The math accent |\"| can now be typed as `|"|'.
 %
@@ -1410,21 +1200,21 @@ and the derived files             russianb.ins,
 %    through |\guillemotleft| and |\guillemotrigh|.
 %
 %    \begin{macrocode}
-\declare@shorthand{russian}{"`}{\quotedblbase}
-\declare@shorthand{russian}{"'}{\textquotedblleft}
-\declare@shorthand{russian}{"<}{\guillemotleft}
-\declare@shorthand{russian}{">}{\guillemotright}
+\declare@shorthand{belarusian}{"`}{\quotedblbase}
+\declare@shorthand{belarusian}{"'}{\textquotedblleft}
+\declare@shorthand{belarusian}{"<}{\guillemotleft}
+\declare@shorthand{belarusian}{">}{\guillemotright}
 %    \end{macrocode}
 %
 %    Next set of shorthands is intended for variations of standard macro |\-|
 %    which indicates explicitly breakpoint for hyphenation in a word. Meaning
-%    of these shorthands is explained in table~\ref{tab:russian-quote}.
+%    of these shorthands is explained in table~\ref{tab:belarusian-quote}.
 %
 %    \begin{macrocode}
-\declare@shorthand{russian}{""}{\hskip\z@skip}
-\declare@shorthand{russian}{"~}{\textormath{\leavevmode\hbox{-}}{-}}
-\declare@shorthand{russian}{"=}{\nobreak-\hskip\z@skip}
-\declare@shorthand{russian}{"|}{%
+\declare@shorthand{belarusian}{""}{\hskip\z@skip}
+\declare@shorthand{belarusian}{"~}{\textormath{\leavevmode\hbox{-}}{-}}
+\declare@shorthand{belarusian}{"=}{\nobreak-\hskip\z@skip}
+\declare@shorthand{belarusian}{"|}{%
   \textormath{\nobreak\discretionary{-}{}{\kern.03em}\allowhyphens}{}}
 %    \end{macrocode}
 %
@@ -1434,25 +1224,25 @@ and the derived files             russianb.ins,
 %    after |-| token is a hyphen character.
 %    If it is, we output an emdash, otherwise a hyphen sign. Therefor
 %    \TeX\ looks for the next token after the first `|-|', writes
-%    its meaning to |\russian@sh@next| and finally call for |\russian@sh@tmp|.
+%    its meaning to |\belarusian@sh@next| and finally call for |\belarusian@sh@tmp|.
 %
 %    \begin{macrocode}
-\declare@shorthand{russian}{"-}{%
-  \def\russian@sh@tmp{%
-    \if\russian@sh@next-\expandafter\russian@sh@emdash
-    \else\expandafter\russian@sh@hyphen\fi}%
-  \futurelet\russian@sh@next\russian@sh@tmp}
+\declare@shorthand{belarusian}{"-}{%
+  \def\belarusian@sh@tmp{%
+    \if\belarusian@sh@next-\expandafter\belarusian@sh@emdash
+    \else\expandafter\belarusian@sh@hyphen\fi}%
+  \futurelet\belarusian@sh@next\belarusian@sh@tmp}
 %    \end{macrocode}
-%    Two macros |\russian@sh@hyphen| and |\russian@sh@emdash| called by
-%    |\russian@sh@tmp|  are defined below. The second of
+%    Two macros |\belarusian@sh@hyphen| and |\belarusian@sh@emdash| called by
+%    |\belarusian@sh@tmp|  are defined below. The second of
 %    them has two parameters since it must gobble next two hyphen signs.
 %    \begin{macrocode}
-\def\russian@sh@hyphen{\nobreak\-\bbl@allowhyphens}
-\def\russian@sh@emdash#1#2{\cdash-#1#2}
+\def\belarusian@sh@hyphen{\nobreak\-\bbl@allowhyphens}
+\def\belarusian@sh@emdash#1#2{\cdash-#1#2}
 %    \end{macrocode}
 %
 %  \Describe\cdash{}
-%    In its turn, |\russian@sh@emdash| simply calls for |\cdash| which has
+%    In its turn, |\belarusian@sh@emdash| simply calls for |\cdash| which has
 %    rich use. It analyses 3rd of 3 characters and calls for one of few
 %    predefined macros |\@Acdash|, |\@Bcdash|, |\@Ccdash|.
 %    \begin{macrocode}
@@ -1509,7 +1299,7 @@ and the derived files             russianb.ins,
 %  \def\cyrdash{\hbox to.8em{--\hss--}}
 %  \PackageInfo{babel}{\string\cyrdash\space is defined}
 %\fi
-\ProvideTextCommandDefault{\cyrdash}{\iflanguage{russian}%
+\ProvideTextCommandDefault{\cyrdash}{\iflanguage{belarusian}%
     {\hbox to.8em{--\hss--}}{\textemdash}}
 %    \end{macrocode}
 %
@@ -1521,14 +1311,14 @@ and the derived files             russianb.ins,
 %    it allows hyphenation in the next word.
 %
 %    \begin{macrocode}
-\declare@shorthand{russian}{",}{\nobreak\hskip.2em\ignorespaces}
+\declare@shorthand{belarusian}{",}{\nobreak\hskip.2em\ignorespaces}
 %    \end{macrocode}
 %
 %
-%   \subsection{Switching to and from Russian}
+%   \subsection{Switching to and from Belarusian}
 %
 %   Now we define additional macros used to reset current language to
-%   Russian and back
+%   Belarusian and back
 %   to some original state. The package \pkg{babel} based on the assumption
 %   that original state is characterized by a Latin encoding. Previously,
 %   for back reset the macro |\OriginalTeX| was used, but now use |\latintext|
@@ -1537,14 +1327,14 @@ and the derived files             russianb.ins,
 %
 %    \subsubsection{Caption names}
 %
-%    First, we define Russian equivalents for Russian caption names.
+%    First, we define Belarusian equivalents for Belarusian caption names.
 %
-% \Describe\captionsrussian{}
-%    The macro |\captionsrussian| defines caption names used in the
+% \Describe\captionsbelarusian{}
+%    The macro |\captionsbelarusian| defines caption names used in the
 %    four standard document classes provided with \LaTeX. The macro |\cyr|
 %    activates Cyrillic encoding. It could be dropped if we would be sure
-%    that Russian captions are called only if current language is Russian.
-%    However, the macros such as |\Russian| do not conform to strict rules
+%    that Belarusian captions are called only if current language is Belarusian.
+%    However, the macros such as |\Belarusian| do not conform to strict rules
 %    of the package \pkg{babel} as explained in the above.
 %
 %    As of version v.1.2 we eliminate |\cyr...| macros from caption names
@@ -1556,42 +1346,35 @@ and the derived files             russianb.ins,
 % \changes{1.2}{2011/10/20}{Unicode code-points added for LuaLaTeX}
 %    \begin{macrocode}
 \if@uni@ode
-  %\captionsrussian@modern
-  \addto\captionsrussian{%
-    \def\prefacename{Предисловие}%   [babel]
-    \def\refname{Список литературы}% [only article]
-    \def\abstractname{Аннотация}%    [only article, report]
-    \def\bibname{Литература}%        [only book, report]
+  %\captionsbelarusian@official
+  \addto\captionsbelarusian{%
+    \def\prefacename{Прадмова}%   [babel]
+    \def\refname{Спіс літаратуры}% [only article]
+    \def\abstractname{Анатацыя}%    [only article, report]
+    \def\bibname{Літаратура}%        [only book, report]
     \def\chaptername{Глава}%         [only book, report]
-    \def\appendixname{Приложение}%
-%    \end{macrocode}
-%    Note that two names for the Table of Contents can be used in Russian
-%    publications. For books (and reports) the second variant is
-%    appropriate, but for proceedings the first variant is preferred:
-%    \begin{macrocode}
-    \@ifundefined{thechapter}
-      {\def\contentsname{Содержание}}%
-      {\def\contentsname{Оглавление}}%
+    \def\appendixname{Дадатак}%
+    \def\contentsname{Змест}%
     \let\tocname=\contentsname
-    \def\listfigurename{Список иллюстраций}%
-    \def\listtablename{Список таблиц}%
-    \def\indexname{Предметный указатель}%
-    \def\authorname{Именной указатель}%
-    \def\figurename{Рис.}%
-    \def\tablename{Таблица}%
-    \def\partname{Часть}%
-    \def\enclname{вкл.}%
-    \def\ccname{исх.}%
+    \def\listfigurename{Спіс ілюстрацый}%
+    \def\listtablename{Спіс табліц}%
+    \def\indexname{Прадметны паказальнік}%
+    \def\authorname{Паказальнік імён}%
+    \def\figurename{Рыс.}%
+    \def\tablename{Табліца}%
+    \def\partname{Частка}%
+    \def\enclname{укл.}%
+    \def\ccname{зых.}%
     \def\headtoname{вх.}%
     \def\pagename{с.}%               [letter]
-    \def\seename{см.}%
-    \def\alsoname{см.\ также}%
-    \def\proofname{Доказательство}%  [amsthm]
-    \def\glossaryname{Словарь терминов}%
-    \def\acronymname{Аббревиатуры}%  [glossaries] {Acronyms}
-    \def\lstlistingname{Листинг}%    [listings]  (the environment) {Listing}
-    \def\lstlistlistingname{Листинги}% [listings]  (the "List of") {Listings}
-    \def\notesname{Заметки}%         [endnotes] {Notes}
+    \def\seename{гл.}%
+    \def\alsoname{гл.\ таксама}%
+    \def\proofname{Доказ}%  [amsthm]
+    \def\glossaryname{Слоўнік тэрмінаў}%
+    \def\acronymname{Абрэвіятуры}%  [glossaries] {Acronyms}
+    \def\lstlistingname{Лістынг}%    [listings]  (the environment) {Listing}
+    \def\lstlistlistingname{Лістынгі}% [listings]  (the "List of") {Listings}
+    \def\notesname{Нататкі}%         [endnotes] {Notes}
   }%
 %    \end{macrocode}
 %    Additional definitions for the package \pkg{nomencl}:
@@ -1599,10 +1382,10 @@ and the derived files             russianb.ins,
   %% =========================================
   %% nomencl
   \ifdefined\nomname
-    \addto\captionsrussian{%
-        \def\nomname{Обозначения}%
-        \def\eqdeclaration#1{, см.\nobreakspace(#1)}%
-        \def\pagedeclaration#1{, стр.\nobreakspace#1}%
+    \addto\captionsbelarusian{%
+        \def\nomname{Азначэнні}%
+        \def\eqdeclaration#1{, гл.\nobreakspace(#1)}%
+        \def\pagedeclaration#1{, стар.\nobreakspace#1}%
     }%
   \fi
 %    \end{macrocode}
@@ -1616,338 +1399,291 @@ and the derived files             russianb.ins,
   %\@ifclassloaded{revtex4-1}
   %{%
   \ifnum\@ifclassloaded{revtex4}{1}{\@ifclassloaded{revtex4-1}{1}{0}}>0
-    \addto\captionsrussian{%
+    \addto\captionsbelarusian{%
     \def\lofname{\listfigurename}
     \def\lotname{\listtablename}
-    \def\figuresname{Рисунки}%{Figures}%
-    \def\tablesname{Таблицы}%{Tables}%
-    \def\appendixesname{Приложения}%{Appendixes}%
-    \def\acknowledgmentsname{Благодарности}%{Acknowledgments}
+    \def\figuresname{Рысункі}%{Figures}%
+    \def\tablesname{Табліцы}%{Tables}%
+    \def\appendixesname{Дадаткі}%{Appendixes}%
+    \def\acknowledgmentsname{Падзякі}%{Acknowledgments}
     \def\andname{и}%{and}
     \def\@pacs@name{PACS коды: }%{PACS numbers: }%
-    \def\@keys@name{Ключевые слова: }%{Keywords: }%
+    \def\@keys@name{Ключавыя словы: }%{Keywords: }%
     \def\Dated@name{Дата: }%{Dated: }%
-    \def\Received@name{Получено }%{Received }%
-    \def\Revised@name{Исправленная версия }%{Revised }%
-    \def\Accepted@name{Принято }%{Accepted }%
-    \def\Published@name{Опубликовано }%{Published }%
+    \def\Received@name{Атрымана }%{Received }%
+    \def\Revised@name{Выпраўленая версія }%{Revised }%
+    \def\Accepted@name{Прынята }%{Accepted }%
+    \def\Published@name{Апублікавана }%{Published }%
     }%
   %}{}%
   \fi
 %    \end{macrocode}
 %
 % \changes{1.3h}{2016/02/18}{Revtex captions fixed}
-%    Now we proceed to the ancient version in Unicode encoding.
+%    Now we proceed to the classic version in Unicode encoding.
 %    \begin{macrocode}
-  \addto\captionsrussian@ancient{%
-    \def\prefacename{Предисловіе}%
-    \def\refname{Примѣчанія}%
-    \def\abstractname{Аннотація}%
-    \def\bibname{Библіографія}%
-    \def\chaptername{Глава}%
-    \def\appendixname{Приложеніе}%
-    \@ifundefined{thechapter}
-      {\def\contentsname{Содержаніе}}%
-      {\def\contentsname{Оглавленіе}}%
+  \addto\captionsbelarusian@tarask{%
+    \def\prefacename{Прадмова}%   [babel]
+    \def\refname{Сьпіс літаратуры}% [only article]
+    \def\abstractname{Анатацыя}%    [only article, report]
+    \def\bibname{Літаратура}%        [only book, report]
+    \def\chaptername{Глава}%         [only book, report]
+    \def\appendixname{Дадатак}%
+    \def\contentsname{Зьмест}%
     \let\tocname=\contentsname
-    \def\listfigurename{Списокъ иллюстрацій}%
-    \def\listtablename{Списокъ таблицъ}%
-    \def\indexname{Предмѣтный указатель}%
-    \def\authorname{Именной указатель}%
-    \def\figurename{Рис.}%
-    \def\tablename{Таблица}%
-    \def\partname{Часть}%
-    \def\enclname{вкл.}%
-    \def\ccname{исх.}%
+    \def\listfigurename{Сьпіс ілюстрацый}%
+    \def\listtablename{Сьпіс табліц}%
+    \def\indexname{Прадметны паказальнік}%
+    \def\authorname{Паказальнік імён}%
+    \def\figurename{Рыс.}%
+    \def\tablename{Табліца}%
+    \def\partname{Частка}%
+    \def\enclname{укл.}%
+    \def\ccname{зых.}%
     \def\headtoname{вх.}%
-    \def\pagename{с.}%
-    \def\seename{см.}%
-    \def\alsoname{см.~также}%
-    \def\proofname{Доказательство}%
-    \def\glossaryname{Словарь терминов}%
-    \def\acronymname{Аббревиатуры}%
-    \def\lstlistingname{Листинг}%
-    \def\lstlistlistingname{Листинги}%
-    %\ifdefined\nomname
-    % see http://old_russian.academic.ru/8433/%D0%BE%D0%B1%D1%8A%CB%AB%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%A5
-      \def\nomname{Обозначенія}%{Объавлениѥ}% <-- #0465
-    %\fi
-    \def\notesname{Заметки}%
+    \def\pagename{с.}%               [letter]
+    \def\seename{гл.}%
+    \def\alsoname{гл.\ таксама}%
+    \def\proofname{Доказ}%  [amsthm]
+    \def\glossaryname{Слоўнік тэрмінаў}%
+    \def\acronymname{Абрэвіятуры}%  [glossaries] {Acronyms}
+    \def\lstlistingname{Лістынг}%    [listings]  (the environment) {Listing}
+    \def\lstlistlistingname{Лістынгі}% [listings]  (the "List of") {Listings}
+    \def\nomname{Азначэньні}%
+    \def\notesname{Нататкі}%         [endnotes] {Notes}
   }
   %% =========================================
   %% RevTeX4 & RevTeX4-1
   %\@ifclassloaded{revtex4-1}
   %{%
   \ifnum\@ifclassloaded{revtex4}{1}{\@ifclassloaded{revtex4-1}{1}{0}}>0
-    \addto\captionsrussian@ancient{%
+    \addto\captionsbelarusian@tarask{%
     \def\lofname{\listfigurename}
     \def\lotname{\listtablename}
-    \def\figuresname{Рисунки}%{Figures}%
-    \def\tablesname{Таблицы}%{Tables}%
-    \def\appendixesname{Приложения}%{Appendixes}%
-    \def\acknowledgmentsname{Благодарности}%{Acknowledgments}
+    \def\figuresname{Рысункі}%{Figures}%
+    \def\tablesname{Табліцы}%{Tables}%
+    \def\appendixesname{Дадаткі}%{Appendixes}%
+    \def\acknowledgmentsname{Падзякі}%{Acknowledgments}
     \def\andname{и}%{and}
     \def\@pacs@name{PACS коды: }%{PACS numbers: }%
-    \def\@keys@name{Ключевые слова: }%{Keywords: }%
+    \def\@keys@name{Ключавыя словы: }%{Keywords: }%
     \def\Dated@name{Дата: }%{Dated: }%
-    \def\Received@name{Получено }%{Received }%
-    \def\Revised@name{Исправленная версия }%{Revised }%
-    \def\Accepted@name{Принято }%{Accepted }%
-    \def\Published@name{Опубликовано }%{Published }%
+    \def\Received@name{Атрымана }%{Received }%
+    \def\Revised@name{Выпраўленая вэрсыя }%{Revised }%
+    \def\Accepted@name{Прынята }%{Accepted }%
+    \def\Published@name{Апублікавана }%{Published }%
     }%
   %}{}%
   \fi
   %% =========================================
 \else
-  %\def\captionsrussian@modern{%
-  \addto\captionsrussian{%
-    \def\prefacename{%
-      {\cyr\CYRP\cyrr\cyre\cyrd\cyri\cyrs\cyrl\cyro\cyrv\cyri\cyre}}%
-    \def\refname{%
-      {\cyr\CYRS\cyrp\cyri\cyrs\cyro\cyrk\
-      \cyrl\cyri\cyrt\cyre\cyrr\cyra\cyrt\cyru\cyrr\cyrery}}%
-    \def\abstractname{%
-      {\cyr\CYRA\cyrn\cyrn\cyro\cyrt\cyra\cyrc\cyri\cyrya}}%
-      \def\bibname{%
-        {\cyr\CYRL\cyri\cyrt\cyre\cyrr\cyra\cyrt\cyru\cyrr\cyra}}%
-    \def\chaptername{{\cyr\CYRG\cyrl\cyra\cyrv\cyra}}%
-    \def\appendixname{%
-      {\cyr\CYRP\cyrr\cyri\cyrl\cyro\cyrzh\cyre\cyrn\cyri\cyre}}%
-    \@ifundefined{thechapter}%
-      {\def\contentsname{%
-        {\cyr\CYRS\cyro\cyrd\cyre\cyrr\cyrzh\cyra\cyrn\cyri\cyre}}}%
-      {\def\contentsname{%
-        {\cyr\CYRO\cyrg\cyrl\cyra\cyrv\cyrl\cyre\cyrn\cyri\cyre}}}%
+  %\def\captionsbelarusian@official{%
+  \addto\captionsbelarusian{%
+    \def\prefacename{\CYRP\cyrr\cyra\cyrd\cyrm\cyro\cyrv\cyra}%   [babel]
+    \def\refname{\CYRS\cyrp\cyrii\cyrs \cyrl\cyrii\cyrt\cyra\cyrr\cyra\cyrt\cyru\cyrr\cyrery}% [only article]
+    \def\abstractname{\CYRA\cyrn\cyra\cyrt\cyra\cyrc\cyrery\cyrya}%    [only article, report]
+    \def\bibname{\CYRL\cyrii\cyrt\cyra\cyrr\cyra\cyrt\cyru\cyrr\cyra}%        [only book, report]
+    \def\chaptername{\CYRG\cyrl\cyra\cyrv\cyra}%         [only book, report]
+    \def\appendixname{\CYRD\cyra\cyrd\cyra\cyrt\cyra\cyrk}%
+    \def\contentsname{\CYRZ\cyrm\cyre\cyrs\cyrt}%
     \let\tocname=\contentsname
-    \def\listfigurename{%
-      {\cyr\CYRS\cyrp\cyri\cyrs\cyro\cyrk
-        \ \cyri\cyrl\cyrl\cyryu\cyrs\cyrt\cyrr\cyra\cyrc\cyri\cyrishrt}}%
-    \def\listtablename{%
-      {\cyr\CYRS\cyrp\cyri\cyrs\cyro\cyrk
-        \ \cyrt\cyra\cyrb\cyrl\cyri\cyrc}}%
-    \def\indexname{%
-      {\cyr\CYRP\cyrr\cyre\cyrd\cyrm\cyre\cyrt\cyrn\cyrery\cyrishrt
-        \ \cyru\cyrk\cyra\cyrz\cyra\cyrt\cyre\cyrl\cyrsftsn}}%
-    \def\authorname{%
-      {\cyr\CYRI\cyrm\cyre\cyrn\cyrn\cyro\cyrishrt
-        \ \cyru\cyrk\cyra\cyrz\cyra\cyrt\cyre\cyrl\cyrsftsn}}%
-    \def\figurename{{\cyr\CYRR\cyri\cyrs.}}%
-    \def\tablename{{\cyr\CYRT\cyra\cyrb\cyrl\cyri\cyrc\cyra}}%
-    \def\partname{{\cyr\CYRCH\cyra\cyrs\cyrt\cyrsftsn}}%
-    \def\enclname{{\cyr\cyrv\cyrk\cyrl.}}%
-    \def\ccname{{\cyr\cyri\cyrs\cyrh.}}%
-    \def\headtoname{{\cyr\cyrv\cyrh.}}%
-    \def\pagename{{\cyr\cyrs.}}%
-    \def\seename{{\cyr\cyrs\cyrm.}}%
-    \def\alsoname{{\cyr\cyrs\cyrm.\ \cyrt\cyra\cyrk\cyrzh\cyre}}%
-    \def\proofname{{\cyr\CYRD\cyro\cyrk\cyra\cyrz\cyra\cyrt
-       \cyre\cyrl\cyrsftsn\cyrs\cyrt\cyrv\cyro}}%
-    \def\glossaryname{{\cyr\CYRS\cyrl\cyro\cyrv\cyra\cyrr\cyrsftsn\
-       \cyrt\cyre\cyrr\cyrm\cyri\cyrn\cyro\cyrv}}%
-    \def\acronymname{\CYRA\cyrb\cyrb\cyrr\cyre\cyrv\cyri\cyra\cyrt\cyru\cyrr\cyrery}%
-    \def\lstlistingname{\CYRL\cyri\cyrs\cyrt\cyri\cyrn\cyrg}%
-    \def\lstlistlistingname{\CYRL\cyri\cyrs\cyrt\cyri\cyrn\cyrg\cyri}%
-    \def\nomname{\CYRO\cyrb\cyro\cyrz\cyrn\cyra\cyrch\cyre\cyrn\cyri\cyrya}%
-    \def\notesname{\CYRZ\cyra\cyrm\cyre\cyrt\cyrk\cyri}%
+    \def\listfigurename{\CYRS\cyrp\cyrii\cyrs \cyrii\cyrl\cyryu\cyrs\cyrt\cyrr\cyra\cyrc\cyrery\cyrishrt}%
+    \def\listtablename{\CYRS\cyrp\cyrii\cyrs \cyrt\cyra\cyrb\cyrl\cyrii\cyrc}%
+    \def\indexname{\CYRP\cyrr\cyra\cyrd\cyrm\cyre\cyrt\cyrn\cyrery \cyrp\cyra\cyrk\cyra\cyrz\cyra\cyrl\cyrsftsn\cyrn\cyrii\cyrk}%
+    \def\authorname{\CYRP\cyra\cyrk\cyra\cyrz\cyra\cyrl\cyrsftsn\cyrn\cyrii\cyrk \cyrii\cyrm\cyryo\cyrn}%
+    \def\figurename{\CYRR\cyrery\cyrs.}%
+    \def\tablename{\CYRT\cyra\cyrb\cyrl\cyrii\cyrc\cyra}%
+    \def\partname{\CYRCH\cyra\cyrs\cyrt\cyrk\cyra}%
+    \def\enclname{\cyru\cyrk\cyrl.}%
+    \def\ccname{\cyrz\cyrery\cyrh.}%
+    \def\headtoname{\cyrv\cyrh.}%
+    \def\pagename{\cyrs.}%               [letter]
+    \def\seename{\cyrg\cyrl.}%
+    \def\alsoname{\cyrg\cyrl.\ \cyrt\cyra\cyrk\cyrs\cyra\cyrm\cyra}%
+    \def\proofname{\CYRD\cyro\cyrk\cyra\cyrz}%  [amsthm]
+    \def\glossaryname{\CYRS\cyrl\cyro\cyrushrt\cyrn\cyrii\cyrk \cyrt\cyrerev\cyrr\cyrm\cyrii\cyrn\cyra\cyrushrt}%
+    \def\acronymname{\CYRA\cyrb\cyrr\cyrerev\cyrv\cyrii\cyrya\cyrt\cyru\cyrr\cyrery}%  [glossaries] {Acronyms}
+    \def\lstlistingname{\CYRL\cyrii\cyrs\cyrt\cyrery\cyrn\cyrg}%    [listings]  (the environment) {Listing}
+    \def\lstlistlistingname{\CYRL\cyrii\cyrs\cyrt\cyrery\cyrn\cyrg\cyrii}% [listings]  (the "List of") {Listings}
+    \def\nomname{\CYRA\cyrz\cyrn\cyra\cyrch\cyrerev\cyrn\cyrn\cyrii}%
+    \def\notesname{\CYRN\cyra\cyrt\cyra\cyrt\cyrk\cyrii}%         [endnotes] {Notes}
   }%
   %% =========================================
   %% RevTeX4 & RevTeX4-1
   \ifnum \@ifclassloaded{revtex4}{1}{\@ifclassloaded{revtex4-1}{1}{0}}>0
-    \addto\captionsrussian{%
+    \addto\captionsbelarusian{%
     \def\lofname{\listfigurename}
     \def\lotname{\listtablename}
-    \def\figuresname{\CYRR\cyri\cyrs\cyru\cyrn\cyrk\cyri}%{Figures}%
-    \def\tablesname{\CYRT\cyra\cyrb\cyrl\cyri\cyrc\cyrery}%{Tables}%
-    \def\appendixesname{\CYRP\cyrr\cyri\cyrl\cyro\cyrzh\cyre\cyrn\cyri\cyrya}%{Appendixes}%
-    \def\acknowledgmentsname{\CYRB\cyrl\cyra\cyrg\cyro\cyrd\cyra\cyrr\cyrn\cyro\cyrs\cyrt\cyri}%{Acknowledgments}
+    \def\figuresname{\CYRR\cyrery\cyrs\cyru\cyrn\cyrk\cyrii}%{Figures}%
+    \def\tablesname{\CYRT\cyra\cyrb\cyrl\cyrii\cyrc\cyrery}%{Tables}%
+    \def\appendixesname{\CYRD\cyra\cyrd\cyra\cyrt\cyrk\cyrii}%{Appendixes}%
+    \def\acknowledgmentsname{\CYRP\cyra\cyrd\cyrz\cyrya\cyrk\cyrii}%{Acknowledgments}
     \def\andname{\cyri}%{and}
     \def\@pacs@name{PACS \cyrk\cyro\cyrd\cyrery: }%{PACS numbers: }%
-    \def\@keys@name{\CYRK\cyrl\cyryu\cyrch\cyre\cyrv\cyrery\cyre \cyrs\cyrl\cyro\cyrv\cyra: }%{Keywords: }%
+    \def\@keys@name{\CYRK\cyrl\cyryu\cyrch\cyra\cyrv\cyrery\cyrya \cyrs\cyrl\cyro\cyrv\cyrery: }%{Keywords: }%
     \def\Dated@name{\CYRD\cyra\cyrt\cyra: }%{Dated: }%
-    \def\Received@name{\CYRP\cyro\cyrl\cyru\cyrch\cyre\cyrn\cyro }%{Received }%
-    \def\Revised@name{\CYRI\cyrs\cyrp\cyrr\cyra\cyrv\cyrl\cyre\cyrn\cyrn\cyra\cyrya \cyrv\cyre\cyrr\cyrs\cyri\cyrya }%{Revised }%
-    \def\Accepted@name{\CYRP\cyrr\cyri\cyrn\cyrya\cyrt\cyro }%{Accepted }%
-    \def\Published@name{\CYRO\cyrp\cyru\cyrb\cyrl\cyri\cyrk\cyro\cyrv\cyra\cyrn\cyro }%{Published }%
+    \def\Received@name{\CYRA\cyrt\cyrr\cyrery\cyrm\cyra\cyrn\cyra }%{Received }%
+    \def\Revised@name{\CYRV\cyrery\cyrp\cyrr\cyra\cyrushrt\cyrl\cyre\cyrn\cyra\cyrya \cyrv\cyre\cyrr\cyrs\cyrii\cyrya }%{Revised }%
+    \def\Accepted@name{\CYRP\cyrr\cyrery\cyrn\cyrya\cyrt\cyra }%{Accepted }%
+    \def\Published@name{\CYRA\cyrp\cyru\cyrb\cyrl\cyrii\cyrk\cyra\cyrv\cyra\cyrn\cyra }%{Published }%
     }%
   \fi
   %% =========================================
-  \addto\captionsrussian@ancient{%
-    \def\prefacename{%
-      {\cyr\CYRP\cyrr\cyre\cyrd\cyri\cyrs\cyrl\cyro\cyrv\cyrii\cyre}}%
-    \def\refname{%
-      {\cyr\CYRP\cyrr\cyri\cyrm\cyryat\cyrch\cyra\cyrn\cyrii\cyrya}}%          <-- Примѣчанія, нет \cyryat в кодировке T2*
-    \def\abstractname{%
-      {\cyr\CYRA\cyrn\cyrn\cyro\cyrt\cyra\cyrc\cyrii\cyrya}}%
-    \def\bibname{%
-      {\cyr\CYRB\cyri\cyrb\cyrl\cyrii\cyro\cyrg\cyrr\cyra\cyrf\cyrii\cyrya}}%  <-- Библіографія
-    \def\chaptername{{\cyr\CYRG\cyrl\cyra\cyrv\cyra}}%
-    \def\appendixname{%
-      {\cyr\CYRP\cyrr\cyri\cyrl\cyro\cyrzh\cyre\cyrn\cyrii\cyre}}%
-    \@ifundefined{thechapter}%
-      {\def\contentsname{%
-        {\cyr\CYRS\cyro\cyrd\cyre\cyrr\cyrzh\cyra\cyrn\cyrii\cyre}}}%
-      {\def\contentsname{%
-        {\cyr\CYRO\cyrg\cyrl\cyra\cyrv\cyrl\cyre\cyrn\cyrii\cyre}}}%
+  \addto\captionsbelarusian@tarask{%
+    \def\prefacename{\CYRP\cyrr\cyra\cyrd\cyrm\cyro\cyrv\cyra}%   [babel]
+    \def\refname{\CYRS\cyrsftsn\cyrp\cyrii\cyrs \cyrl\cyrii\cyrt\cyra\cyrr\cyra\cyrt\cyru\cyrr\cyrery}% [only article]
+    \def\abstractname{\CYRA\cyrn\cyra\cyrt\cyra\cyrc\cyrery\cyrya}%    [only article, report]
+    \def\bibname{\CYRL\cyrii\cyrt\cyra\cyrr\cyra\cyrt\cyru\cyrr\cyra}%        [only book, report]
+    \def\chaptername{\CYRG\cyrl\cyra\cyrv\cyra}%         [only book, report]
+    \def\appendixname{\CYRD\cyra\cyrd\cyra\cyrt\cyra\cyrk}%
+    \def\contentsname{\CYRZ\cyrsftsn\cyrm\cyre\cyrs\cyrt}%
     \let\tocname=\contentsname
-    % Списокъ иллюстрацій
-    \def\listfigurename{%
-      {\cyr\CYRS\cyrp\cyri\cyrs\cyro\cyrk\cyrhrdsn\
-       \cyri\cyrl\cyrl\cyryu\cyrs\cyrt\cyrr\cyra\cyrc\cyrii\cyrishrt}}
-    % Списокъ таблицъ
-    \def\listtablename{%
-      {\cyr\CYRS\cyrp\cyri\cyrs\cyro\cyrk\cyrhrdsn\
-       \cyrt\cyra\cyrb\cyrl\cyri\cyrc\cyrhrdsn}}%
-    % Предмѣтный указатель, ѣ (\cyryat) in X2 encoding only
-    \def\indexname{%
-      {\cyr\CYRP\cyrr\cyre\cyrd\cyrm\cyryat\cyrt\cyrn\cyrery\cyrishrt\space
-       \cyru\cyrk\cyra\cyrz\cyra\cyrt\cyre\cyrl\cyrsftsn}}%
-    \def\authorname{%
-      {\cyr\CYRI\cyrm\cyre\cyrn\cyrn\cyro\cyrishrt\
-       \cyru\cyrk\cyra\cyrz\cyra\cyrt\cyre\cyrl\cyrsftsn}}%
-    \def\figurename{{\cyr\CYRR\cyri\cyrs.}}%
-    \def\tablename{{\cyr\CYRT\cyra\cyrb\cyrl\cyri\cyrc\cyra}}%
-    \def\partname{{\cyr\CYRCH\cyra\cyrs\cyrt\cyrsftsn}}%
-    \def\enclname{{\cyr\cyrv\cyrk\cyrl.}}%
-    \def\ccname{{\cyr\cyri\cyrs\cyrh.}}%
-    \def\headtoname{{\cyr\cyrv\cyrh.}}%
-    \def\pagename{{\cyr\cyrs.}}%
-    \def\seename{{\cyr\cyrs\cyrm.}}%
-    \def\alsoname{{\cyr\cyrs\cyrm.\ \cyrt\cyra\cyrk\cyrzh\cyre}}%
-    \def\proofname{{\cyr\CYRD\cyro\cyrk\cyra\cyrz\cyra\cyrt
-      \cyre\cyrl\cyrsftsn\cyrs\cyrt\cyrv\cyro}}%
-    \def\glossaryname{{\cyr\CYRS\cyrl\cyro\cyrv\cyra\cyrr\cyrsftsn\
-      \cyrt\cyre\cyrr\cyrm\cyri\cyrn\cyro\cyrv}}% <-- Needs translation
-    \def\acronymname{\CYRA\cyrb\cyrb\cyrr\cyre\cyrv\cyri\cyra\cyrt\cyru\cyrr\cyrery}%
-    \def\lstlistingname{\CYRL\cyri\cyrs\cyrt\cyri\cyrn\cyrg}%
-    \def\lstlistlistingname{\CYRL\cyri\cyrs\cyrt\cyri\cyrn\cyrg\cyri}%
-    \def\nomname{\CYRO\cyrb\cyro\cyrz\cyrn\cyra\cyrch\cyre\cyrn\cyrii\cyrya}%
-    \def\notesname{\CYRZ\cyra\cyrm\cyre\cyrt\cyrk\cyri}%
+    \def\listfigurename{\CYRS\cyrsftsn\cyrp\cyrii\cyrs \cyrii\cyrl\cyryu\cyrs\cyrt\cyrr\cyra\cyrc\cyrery\cyrishrt}%
+    \def\listtablename{\CYRS\cyrsftsn\cyrp\cyrii\cyrs \cyrt\cyra\cyrb\cyrl\cyrii\cyrc}%
+    \def\indexname{\CYRP\cyrr\cyra\cyrd\cyrm\cyre\cyrt\cyrn\cyrery \cyrp\cyra\cyrk\cyra\cyrz\cyra\cyrl\cyrsftsn\cyrn\cyrii\cyrk}%
+    \def\authorname{\CYRP\cyra\cyrk\cyra\cyrz\cyra\cyrl\cyrsftsn\cyrn\cyrii\cyrk \cyrii\cyrm\cyryo\cyrn}%
+    \def\figurename{\CYRR\cyrery\cyrs.}%
+    \def\tablename{\CYRT\cyra\cyrb\cyrl\cyrii\cyrc\cyra}%
+    \def\partname{\CYRCH\cyra\cyrs\cyrt\cyrk\cyra}%
+    \def\enclname{\cyru\cyrk\cyrl.}%
+    \def\ccname{\cyrz\cyrery\cyrh.}%
+    \def\headtoname{\cyrv\cyrh.}%
+    \def\pagename{\cyrs.}%               [letter]
+    \def\seename{\cyrg\cyrl.}%
+    \def\alsoname{\cyrg\cyrl.\ \cyrt\cyra\cyrk\cyrs\cyra\cyrm\cyra}%
+    \def\proofname{\CYRD\cyro\cyrk\cyra\cyrz}%  [amsthm]
+    \def\glossaryname{\CYRS\cyrl\cyro\cyrushrt\cyrn\cyrii\cyrk \cyrt\cyrerev\cyrr\cyrm\cyrii\cyrn\cyra\cyrushrt}%
+    \def\acronymname{\CYRA\cyrb\cyrr\cyrerev\cyrv\cyrii\cyrya\cyrt\cyru\cyrr\cyrery}%  [glossaries] {Acronyms}
+    \def\lstlistingname{\CYRL\cyrii\cyrs\cyrt\cyrery\cyrn\cyrg}%    [listings]  (the environment) {Listing}
+    \def\lstlistlistingname{\CYRL\cyrii\cyrs\cyrt\cyrery\cyrn\cyrg\cyrii}% [listings]  (the "List of") {Listings}
+    \def\nomname{\CYRA\cyrz\cyrn\cyra\cyrch\cyrerev\cyrn\cyrsftsn\cyrn\cyrii}%
+    \def\notesname{\CYRN\cyra\cyrt\cyra\cyrt\cyrk\cyrii}%         [endnotes] {Notes}
   }%
   %% =========================================
   %% RevTeX4 & RevTeX4-1
   \ifnum \@ifclassloaded{revtex4}{1}{\@ifclassloaded{revtex4-1}{1}{0}}>0
-    \addto\captionsrussian@ancient{%
+    \addto\captionsbelarusian@tarask{%
     \def\lofname{\listfigurename}
     \def\lotname{\listtablename}
-    \def\figuresname{\CYRR\cyri\cyrs\cyru\cyrn\cyrk\cyri}%{Figures}%
-    \def\tablesname{\CYRT\cyra\cyrb\cyrl\cyri\cyrc\cyrery}%{Tables}%
-    \def\appendixesname{\CYRP\cyrr\cyri\cyrl\cyro\cyrzh\cyre\cyrn\cyri\cyrya}%{Appendixes}%
-    \def\acknowledgmentsname{\CYRB\cyrl\cyra\cyrg\cyro\cyrd\cyra\cyrr\cyrn\cyro\cyrs\cyrt\cyri}%{Acknowledgments}
+    \def\figuresname{\CYRR\cyrery\cyrs\cyru\cyrn\cyrk\cyrii}%{Figures}%
+    \def\tablesname{\CYRT\cyra\cyrb\cyrl\cyrii\cyrc\cyrery}%{Tables}%
+    \def\appendixesname{\CYRD\cyra\cyrd\cyra\cyrt\cyrk\cyrii}%{Appendixes}%
+    \def\acknowledgmentsname{\CYRP\cyra\cyrd\cyrz\cyrya\cyrk\cyrii}%{Acknowledgments}
     \def\andname{\cyri}%{and}
     \def\@pacs@name{PACS \cyrk\cyro\cyrd\cyrery: }%{PACS numbers: }%
-    \def\@keys@name{\CYRK\cyrl\cyryu\cyrch\cyre\cyrv\cyrery\cyre \cyrs\cyrl\cyro\cyrv\cyra: }%{Keywords: }%
+    \def\@keys@name{\CYRK\cyrl\cyryu\cyrch\cyra\cyrv\cyrery\cyrya \cyrs\cyrl\cyro\cyrv\cyrery: }%{Keywords: }%
     \def\Dated@name{\CYRD\cyra\cyrt\cyra: }%{Dated: }%
-    \def\Received@name{\CYRP\cyro\cyrl\cyru\cyrch\cyre\cyrn\cyro }%{Received }%
-    \def\Revised@name{\CYRI\cyrs\cyrp\cyrr\cyra\cyrv\cyrl\cyre\cyrn\cyrn\cyra\cyrya \cyrv\cyre\cyrr\cyrs\cyri\cyrya }%{Revised }%
-    \def\Accepted@name{\CYRP\cyrr\cyri\cyrn\cyrya\cyrt\cyro }%{Accepted }%
-    \def\Published@name{\CYRO\cyrp\cyru\cyrb\cyrl\cyri\cyrk\cyro\cyrv\cyra\cyrn\cyro }%{Published }%
+    \def\Received@name{\CYRA\cyrt\cyrr\cyrery\cyrm\cyra\cyrn\cyra }%{Received }%
+    \def\Revised@name{\CYRV\cyrery\cyrp\cyrr\cyra\cyrushrt\cyrl\cyre\cyrn\cyra\cyrya \cyrv\cyrerev\cyrr\cyrs\cyrery\cyrya }%{Revised }%
+    \def\Accepted@name{\CYRP\cyrr\cyrery\cyrn\cyrya\cyrt\cyra }%{Accepted }%
+    \def\Published@name{\CYRA\cyrp\cyru\cyrb\cyrl\cyrii\cyrk\cyra\cyrv\cyra\cyrn\cyra }%{Published }%
     }%
   \fi
   %% =========================================
 \fi
 %    \end{macrocode}
 %
-%    \subsubsection{Date in Russian}
+%    \subsubsection{Date in Belarusian}
 %
-% \Describe\daterussian{}
-%    The macro |\daterussian| is used to reset the macro |\today| in Russian.
+% \Describe\datebelarusian{}
+%    The macro |\datebelarusian| is used to reset the macro |\today| in Belarusian.
 %
 % \changes{1.2}{2011/10/20}{Unicode code-points added for LuaLaTeX}
 %    \begin{macrocode}
 \if@uni@ode
-  \addto\daterussian{%
+  \addto\datebelarusian{%
    \def\today{\number\day~\ifcase\month\or
-    января\or
-    февраля\or
-    марта\or
-    апреля\or
+    студзеня\or
+    лютага\or
+    сакавіка\or
+    красавіка\or
     мая\or
-    июня\or
-    июля\or
-    августа\or
-    сентября\or
-    октября\or
-    ноября\or
-    декабря\fi
+    чэрвеня\or
+    ліпеня\or
+    жніўня\or
+    верасня\or
+    кастрычніка\or
+    лістапада\or
+    снежня\fi
     \space \number\year~г.}}
-  \def\daterussian@ancient{%
+  \def\datebelarusian@tarask{%
    \def\today{\number\day~\ifcase\month\or%
-    января\or
-    февраля\or
-    марта\or
-    апреля\or
-    мая\or
-    іюня\or
-    іюля\or
-    августа\or
-    сентября\or
-    октября\or
-    ноября\or
-    декабря\fi%
+    студзеня\or
+    лютага\or
+    сакавіка\or
+    красавіка\or
+    траўня\or
+    чэрвеня\or
+    ліпеня\or
+    жніўня\or
+    верасьня\or
+    кастрычніка\or
+    лістапада\or
+    сьнежня\fi%
     \space \number\year~г.}}
 \else
-  \def\daterussian{%
+  \def\datebelarusian{%
    \def\today{\number\day~\ifcase\month\or
-    \cyrya\cyrn\cyrv\cyra\cyrr\cyrya\or
-    \cyrf\cyre\cyrv\cyrr\cyra\cyrl\cyrya\or
-    \cyrm\cyra\cyrr\cyrt\cyra\or
-    \cyra\cyrp\cyrr\cyre\cyrl\cyrya\or
+    \cyrs\cyrt\cyru\cyrd\cyrz\cyre\cyrn\cyrya\or
+    \cyrl\cyryu\cyrt\cyra\cyrg\cyra\or
+    \cyrs\cyra\cyrk\cyra\cyrv\cyrii\cyrk\cyra\or
+    \cyrk\cyrr\cyra\cyrs\cyra\cyrv\cyrii\cyrk\cyra\or
     \cyrm\cyra\cyrya\or
-    \cyri\cyryu\cyrn\cyrya\or
-    \cyri\cyryu\cyrl\cyrya\or
-    \cyra\cyrv\cyrg\cyru\cyrs\cyrt\cyra\or
-    \cyrs\cyre\cyrn\cyrt\cyrya\cyrb\cyrr\cyrya\or
-    \cyro\cyrk\cyrt\cyrya\cyrb\cyrr\cyrya\or
-    \cyrn\cyro\cyrya\cyrb\cyrr\cyrya\or
-    \cyrd\cyre\cyrk\cyra\cyrb\cyrr\cyrya\fi
+    \cyrch\cyrerev\cyrr\cyrv\cyre\cyrn\cyrya\or
+    \cyrl\cyrii\cyrp\cyre\cyrn\cyrya\or
+    \cyrzh\cyrn\cyrii\cyrushrt\cyrn\cyrya\or
+    \cyrv\cyre\cyrr\cyra\cyrs\cyrn\cyrya\or
+    \cyrk\cyra\cyrs\cyrt\cyrr\cyrery\cyrch\cyrn\cyrii\cyrk\cyra\or
+    \cyrl\cyrii\cyrs\cyrt\cyra\cyrp\cyra\cyrd\cyra\or
+    \cyrs\cyrn\cyre\cyrzh\cyrn\cyrya\fi
     \space \number\year~\cyrg.}}
-  \def\daterussian@ancient{%
+  \def\datebelarusian@tarask{%
    \def\today{\number\day~\ifcase\month\or
-    \cyrya\cyrn\cyrv\cyra\cyrr\cyrya\or
-    \cyrf\cyre\cyrv\cyrr\cyra\cyrl\cyrya\or
-    \cyrm\cyra\cyrr\cyrt\cyra\or
-    \cyra\cyrp\cyrr\cyre\cyrl\cyrya\or
-    \cyrm\cyra\cyrya\or
-    \cyrii\cyryu\cyrn\cyrya\or
-    \cyrii\cyryu\cyrl\cyrya\or
-    \cyra\cyrv\cyrg\cyru\cyrs\cyrt\cyra\or
-    \cyrs\cyre\cyrn\cyrt\cyrya\cyrb\cyrr\cyrya\or
-    \cyro\cyrk\cyrt\cyrya\cyrb\cyrr\cyrya\or
-    \cyrn\cyro\cyrya\cyrb\cyrr\cyrya\or
-    \cyrd\cyre\cyrk\cyra\cyrb\cyrr\cyrya\fi
+    \cyrs\cyrt\cyru\cyrd\cyrz\cyre\cyrn\cyrya\or
+    \cyrl\cyryu\cyrt\cyra\cyrg\cyra\or
+    \cyrs\cyra\cyrk\cyra\cyrv\cyrii\cyrk\cyra\or
+    \cyrk\cyrr\cyra\cyrs\cyra\cyrv\cyrii\cyrk\cyra\or
+    \cyrt\cyrr\cyra\cyrushrt\cyrn\cyrya\or
+    \cyrch\cyrerev\cyrr\cyrv\cyre\cyrn\cyrya\or
+    \cyrl\cyrii\cyrp\cyre\cyrn\cyrya\or
+    \cyrzh\cyrn\cyrii\cyrushrt\cyrn\cyrya\or
+    \cyrv\cyre\cyrr\cyra\cyrs\cyrsftsn\cyrn\cyrya\or
+    \cyrk\cyra\cyrs\cyrt\cyrr\cyrery\cyrch\cyrn\cyrii\cyrk\cyra\or
+    \cyrl\cyrii\cyrs\cyrt\cyra\cyrp\cyra\cyrd\cyra\or
+    \cyrs\cyrsftsn\cyrn\cyre\cyrzh\cyrn\cyrya\fi%
     \space \number\year~\cyrg.}}
 \fi
 %    \end{macrocode}
 %
 %    \subsubsection{Hyphenation patterns}
 %
-%    Russian hyphenation patterns are automatically activated every time
-%    Russian language is selected via |\selectlanguage|, |\foreignlanguage|
+%    Belarusian hyphenation patterns are automatically activated every time
+%    Belarusian language is selected via |\selectlanguage|, |\foreignlanguage|
 %    or equivalent command. But we need to declare values of
 %    |\lefthyphenmin| and |\righthyphenmin|; both are set to~2.
 %
 %    As of v.1.2 we removed a definition for |\englishhyphenmins|. It is
-%    not deal of \file{russianb.ldf}.
+%    not deal of \file{belarusianb.ldf}.
 %
-% \changes{1.1a}{1995/07/04}{use \cs{russianhyphenmins} to
+% \changes{1.1a}{1995/07/04}{use \cs{belarusianhyphenmins} to
 %    store the correct values}
 % \changes{1.1m}{2000/09/22}{Now use \cs{providehyphenmins} to
 %    provide a default value}
 % \changes{1.2}{2011/10/20}{\cs{englishhyphenmins} is removed}
 %    \begin{macrocode}
 \providehyphenmins{\CurrentOption}{\tw@\tw@}
-\providehyphenmins{russian}{\tw@\tw@}
+\providehyphenmins{belarusian}{\tw@\tw@}
 %    \end{macrocode}
 %
 %    \subsubsection{Extra definitions}
 %    \label{sss:extra}
 %
-% \Describe\extrasrussian{}
-% \DescribeOther\noextrasrussian{}
-%    The macro |\extrasrussian| performs extra definitions in addition to
+% \Describe\extrasbelarusian{}
+% \DescribeOther\noextrasbelarusian{}
+%    The macro |\extrasbelarusian| performs extra definitions in addition to
 %    resetting the caption names and date.
-%    The macro |\noextrasrussian| is used to cancel the actions of
-%    |\extrasrussian|.
+%    The macro |\noextrasbelarusian| is used to cancel the actions of
+%    |\extrasbelarusian|.
 %
 % \changes{1.1b}{1996/02/20}{Added switch to \texttt{LWN}
 %    encoding}
@@ -1956,25 +1692,25 @@ and the derived files             russianb.ins,
 %    defined macros |\cyrillictext| and |\latintext|.
 %
 %    \begin{macrocode}
-\addto\extrasrussian{\cyrillictext}
-\addto\noextrasrussian{\latintext}
+\addto\extrasbelarusian{\cyrillictext}
+\addto\noextrasbelarusian{\latintext}
 %    \end{macrocode}
 %
-%    Second, we specify that the Russian group of shorthands should be used.
+%    Second, we specify that the Belarusian group of shorthands should be used.
 %
 %    \begin{macrocode}
-\addto\extrasrussian{\languageshorthands{russian}}
-\addto\extrasrussian{\bbl@activate{"}}
-\addto\noextrasrussian{\bbl@deactivate{"}}
+\addto\extrasbelarusian{\languageshorthands{belarusian}}
+\addto\extrasbelarusian{\bbl@activate{"}}
+\addto\noextrasbelarusian{\bbl@deactivate{"}}
 %    \end{macrocode}
 %
-%    Now the action |\extrasrussian| has to execute is to make sure that the
+%    Now the action |\extrasbelarusian| has to execute is to make sure that the
 %    command |\frenchspacing| is in effect. If this is not the case the
-%    execution of |\noextrasrussian| will switch it off again.
+%    execution of |\noextrasbelarusian| will switch it off again.
 %
 %    \begin{macrocode}
-\addto\extrasrussian{\bbl@frenchspacing}
-\addto\noextrasrussian{\bbl@nonfrenchspacing}
+\addto\extrasbelarusian{\bbl@frenchspacing}
+\addto\noextrasbelarusian{\bbl@nonfrenchspacing}
 %    \end{macrocode}
 %
 %
@@ -1991,7 +1727,7 @@ and the derived files             russianb.ins,
 %    Our decision is motivated as follows. If selected Cyrillic font is visually
 %    different from Latin font, the macro |\@alph| and |\@Alph| will produce
 %    visually different output from surrounding text if they are used with
-%    Russian text, which is completely legitimate.
+%    Belarusian text, which is completely legitimate.
 %
 %    Notice for commented code:\\
 %    We put |\latinencoding| in braces to avoid problems with
@@ -2027,79 +1763,83 @@ and the derived files             russianb.ins,
 %    Y\or Z\else\@ctrerr\fi}}%
 %    \end{macrocode}
 %
-%    We add new enumeration style for Russian manuscripts with
+%    We add new enumeration style for Belarusian manuscripts with
 %    Cyrillic letters.
 %
 %  \Describe\Asbuk{}
 %    We begin by defining |\Asbuk| which works like |\Alph|, but produces
 %    (uppercase) Cyrillic letters instead of Latin ones. The letters YO,
-%    ISHRT, HRDSN, ERY, and SFTSN are skipped, as usual for such
+%    ISHRT, USHRT, ERY, and SFTSN are skipped, as usual for such
 %    enumeration.
 %
 %    \begin{macrocode}
-\def\Asbuk#1{\expandafter\russian@Alph\csname c@#1\endcsname}
+\def\Asbuk#1{\expandafter\belarusian@Alph\csname c@#1\endcsname}
 \if@uni@ode
-  \def\russian@Alph#1{\ifcase#1\or
+  \def\belarusian@Alph#1{\ifcase#1\or
     А\or Б\or В\or Г\or Д\or Е\or Ж\or
-    З\or И\or К\or Л\or М\or Н\or О\or
+    З\or І\or К\or Л\or М\or Н\or О\or
     П\or Р\or С\or Т\or У\or Ф\or Х\or
-    Ц\or Ч\or Ш\or Щ\or Э\or Ю\or Я\else\@ctrerr\fi}
+    Ц\or Ч\or Ш\or Э\or Ю\or Я\else\@ctrerr\fi}
 \else
-  \def\russian@Alph#1{\ifcase#1\or
+  \def\belarusian@Alph#1{\ifcase#1\or
     \CYRA\or\CYRB\or\CYRV\or\CYRG\or\CYRD\or\CYRE\or\CYRZH\or
-    \CYRZ\or\CYRI\or\CYRK\or\CYRL\or\CYRM\or\CYRN\or\CYRO\or
+    \CYRZ\or\CYRII\or\CYRK\or\CYRL\or\CYRM\or\CYRN\or\CYRO\or
     \CYRP\or\CYRR\or\CYRS\or\CYRT\or\CYRU\or\CYRF\or\CYRH\or
-    \CYRC\or\CYRCH\or\CYRSH\or\CYRSHCH\or\CYREREV\or\CYRYU\or
+    \CYRC\or\CYRCH\or\CYRSH\or\CYREREV\or\CYRYU\or
     \CYRYA\else\@ctrerr\fi}
 \fi
 %    \end{macrocode}
 %
 %  \Describe\asbuk{}
 %    The macro |\asbuk| is similar to |\alph|; it produces lowercase
-%    Russian letters.
+%    Belarusian letters.
 %
 %    \begin{macrocode}
-\def\asbuk#1{\expandafter\russian@alph\csname c@#1\endcsname}
+\def\asbuk#1{\expandafter\belarusian@alph\csname c@#1\endcsname}
 \if@uni@ode
-  \def\russian@alph#1{\ifcase#1\or
+  \def\belarusian@alph#1{\ifcase#1\or
     а\or б\or в\or г\or д\or е\or ж\or
-    з\or и\or к\or л\or м\or н\or о\or
+    з\or і\or к\or л\or м\or н\or о\or
     п\or р\or с\or т\or у\or ф\or х\or
-    ц\or ч\or ш\or щ\or э\or ю\or я\else\@ctrerr\fi}
+    ц\or ч\or ш\or э\or ю\or я\else\@ctrerr\fi}
 \else
-  \def\russian@alph#1{\ifcase#1\or
+  \def\belarusian@alph#1{\ifcase#1\or
     \cyra\or\cyrb\or\cyrv\or\cyrg\or\cyrd\or\cyre\or\cyrzh\or
-    \cyrz\or\cyri\or\cyrk\or\cyrl\or\cyrm\or\cyrn\or\cyro\or
+    \cyrz\or\cyrii\or\cyrk\or\cyrl\or\cyrm\or\cyrn\or\cyro\or
     \cyrp\or\cyrr\or\cyrs\or\cyrt\or\cyru\or\cyrf\or\cyrh\or
-    \cyrc\or\cyrch\or\cyrsh\or\cyrshch\or\cyrerev\or\cyryu\or
+    \cyrc\or\cyrch\or\cyrsh\or\cyrerev\or\cyryu\or
     \cyrya\else\@ctrerr\fi}
 \fi
 %    \end{macrocode}
 %
 %    Babel 3.9 has introduced a notion of a language attribute.
-%    An \Lopt{ancient} attribute changes default behavior, which
-%    uses modern Russian spelling, an activates an alternative set of
-%    captions and date macros suitable for typesetting ancient
-%    Slavonic and Church books.
+%    The \Lopt{classic} attribute (or its alias \Lopt{tarask}) changes
+%    the default behavior which uses the official Belarusian spelling,
+%    and activates an alternative set of captions and date macros.
 %    \begin{macrocode}
-\bbl@declare@ttribute{russian}{ancient}{%
- \PackageInfo{babel}{Russian attribute set to ancient}%
- \let\captionsrussian=\captionsrussian@ancient
- \let\daterussian=\daterussian@ancient
+\bbl@declare@ttribute{belarusian}{classic}{%
+ \PackageInfo{babel}{Belarusian attribute set to classic}%
+ \let\captionsbelarusian=\captionsbelarusian@tarask
+ \let\datebelarusian=\datebelarusian@tarask
+}
+\bbl@declare@ttribute{belarusian}{tarask}{%
+ \PackageInfo{babel}{Belarusian attribute set to tarask}%
+ \let\captionsbelarusian=\captionsbelarusian@tarask
+ \let\datebelarusian=\datebelarusian@tarask
 }
 %    \end{macrocode}
 %    We don't want for long internal macros to waste memory. So we declare
 %    them to be usable within the preamble only.
 %    \begin{macrocode}
-\@onlypreamble\captionsrussian@ancient
-\@onlypreamble\daterussian@ancient
+\@onlypreamble\captionsbelarusian@tarask
+\@onlypreamble\datebelarusian@tarask
 %    \end{macrocode}
 %
 %    \subsection{Cyrillic math}
 %
 %    For compatibility with older Russian packages we could define the |\No|
-%    macro. However the Russian number sign is now superseded with |\textnumero|.
-%    Moreover, it can be found of Russian keyboard. Therefore we discard |\No|
+%    macro. However the Belarusian number sign is now superseded with |\textnumero|.
+%    Moreover, it can be found of Belarusian keyboard. Therefore we discard |\No|
 %    since v.1.2.
 %    \begin{macrocode}
 %\DeclareRobustCommand{\No}{%
@@ -2145,10 +1885,10 @@ and the derived files             russianb.ins,
 %    \DescribeOther\th{}%
 %    \DescribeOther\cth{}%
 %    \DescribeOther\cosec{}%
-%    We also define few math operator names according to Russian typesetting
-%    traditions. Some math functions in Russian math books have names
+%    We also define few math operator names according to Belarusian typesetting
+%    traditions. Some math functions in Belarusian math books have names
 %    different from English writings. For example, \texttt{sinh} in
-%    Russian is called \texttt{sh}. Special consideration needs the
+%    Belarusian is called \texttt{sh}. Special consideration needs the
 %    macro |\th| that conflicts with the text symbol |\th|
 %    defined in Latin~1 encoding:
 %
@@ -2161,7 +1901,7 @@ and the derived files             russianb.ins,
 \def\ctg{\mathop{\operator@font ctg}\nolimits}
 \def\arctg{\mathop{\operator@font arctg}\nolimits}
 \def\arcctg{\mathop{\operator@font arcctg}\nolimits}
-\addto\extrasrussian{%
+\addto\extrasbelarusian{%
   \babel@save{\th}%
   \let\ltx@th\th
   \def\th{\textormath{\ltx@th}%
@@ -2178,21 +1918,29 @@ and the derived files             russianb.ins,
 %    \DescribeOther\NOD{}%
 %    \DescribeOther\NOK{}%
 %    \DescribeOther\Proj{}%
-%    Finally, we define some rare Russian mathematical symbols:
+%    Finally, we define some rare Belarusian mathematical symbols:
 %    \begin{macrocode}
 \def\Prob{\mathop{\kern\z@\mathsf{P}}\nolimits}
 \def\Variance{\mathop{\kern\z@\mathsf{D}}\nolimits}
 \if@uni@ode
-  \def\nod{\mathop{\mathrm{н.о.д.}}\nolimits}
-  \def\nok{\mathop{\mathrm{н.о.к.}}\nolimits}
-  \def\NOD{\mathop{\mathrm{НОД}}\nolimits}
-  \def\NOK{\mathop{\mathrm{НОК}}\nolimits}
+  \def\nod{\mathop{\mathrm{н.а.д.}}\nolimits}
+  \def\nok{\mathop{\mathrm{н.а.к.}}\nolimits}
+  \def\NOD{\mathop{\mathrm{НАД}}\nolimits}
+  \def\NOK{\mathop{\mathrm{НАК}}\nolimits}
+  \def\nad{\mathop{\mathrm{н.а.д.}}\nolimits}
+  \def\nak{\mathop{\mathrm{н.а.к.}}\nolimits}
+  \def\NAD{\mathop{\mathrm{НАД}}\nolimits}
+  \def\NAK{\mathop{\mathrm{НАК}}\nolimits}
   \def\Proj{\mathop{\mathrm{Пр}}\nolimits}
 \else
-  \def\nod{\mathop{\cyrmathrm{\cyrn.\cyro.\cyrd.}}\nolimits}
-  \def\nok{\mathop{\cyrmathrm{\cyrn.\cyro.\cyrk.}}\nolimits}
-  \def\NOD{\mathop{\cyrmathrm{\CYRN\CYRO\CYRD}}\nolimits}
-  \def\NOK{\mathop{\cyrmathrm{\CYRN\CYRO\CYRK}}\nolimits}
+  \def\nod{\mathop{\cyrmathrm{\cyrn.\cyra.\cyrd.}}\nolimits}
+  \def\nok{\mathop{\cyrmathrm{\cyrn.\cyra.\cyrk.}}\nolimits}
+  \def\NOD{\mathop{\cyrmathrm{\CYRN\CYRA\CYRD}}\nolimits}
+  \def\NOK{\mathop{\cyrmathrm{\CYRN\CYRA\CYRK}}\nolimits}
+  \def\nad{\mathop{\cyrmathrm{\cyrn.\cyra.\cyrd.}}\nolimits}
+  \def\nak{\mathop{\cyrmathrm{\cyrn.\cyra.\cyrk.}}\nolimits}
+  \def\NAD{\mathop{\cyrmathrm{\CYRN\CYRA\CYRD}}\nolimits}
+  \def\NAK{\mathop{\cyrmathrm{\CYRN\CYRA\CYRK}}\nolimits}
   \def\Proj{\mathop{\cyrmathrm{\CYRP\cyrr}}\nolimits}
 \fi
 %    \end{macrocode}
@@ -2208,7 +1956,7 @@ and the derived files             russianb.ins,
 % \changes{1.1d}{1996/11/03}{Now use \cs{ldf@finish} to wrap
 %    up}
 %    \begin{macrocode}
-\ldf@finish{russian}
+\ldf@finish{belarusian}
 %    \end{macrocode}
 %
 %    \begin{macrocode}
@@ -2216,5 +1964,5 @@ and the derived files             russianb.ins,
 %\iffalse
 %</code>
 %\fi
-% \CheckSum{2287}
+% \CheckSum{2215}
 %\Finale
