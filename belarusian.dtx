@@ -5,8 +5,8 @@
 \iffalse
 %</internal>
 %<*readme>
-Belarusian language module for Babel, v1.3h
-===========================================
+Belarusian language module for Babel, v1.4
+==========================================
 
 Released under the LaTeX Project Public License v1.3c or later.
 See http://www.latex-project.org/lppl.txt
@@ -115,6 +115,15 @@ files as they might have stored incompatible internal encodings.
 CHANGES
 -------
 
+2018-08-25 version 1.4
+
+  * Rename belarusianb.dtx to belarusian.dtx since the patch to Babel
+    has been never submitted.
+  * Use textcomp package in the documentation.
+  * Formatting fixes.
+  * Convert the README to Markdown.
+  * Rename the Unicode detection macro to fix conflicts with babel-russian.
+
 2016-04-07 version 1.3h
 
   * Initial version
@@ -193,8 +202,8 @@ and the derived files             belarusian.ins,
 %</internal>
 %<*code>
 \NeedsTeXFormat{LaTeX2e}
-%\ProvidesFile{belarusian.ldf}[2016/04/07 1.3h Belarusian support for the Babel system]
-\ProvidesLanguage{belarusian}[2016/04/07 1.3h Belarusian support for the Babel system]
+%\ProvidesFile{belarusian.ldf}[2018/08/25 1.4 Belarusian support for the Babel system]
+\ProvidesLanguage{belarusian}[2018/08/25 1.4 Belarusian support for the Babel system]
 %</code>
 %<*driver>
 \documentclass[a4paper]{ltxdoc}
