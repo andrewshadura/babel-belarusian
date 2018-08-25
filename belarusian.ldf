@@ -1,10 +1,10 @@
 %%
-%% This is file `belarusianb.ldf',
+%% This is file `belarusian.ldf',
 %% generated with the docstrip utility.
 %%
 %% The original source files were:
 %%
-%% belarusianb.dtx  (with options: `code')
+%% belarusian.dtx  (with options: `code')
 %% ----------------------------------------------------------------
 %% Belarusian Language Support for the Babel package
 %% E-mail: andrew@shadura.me
@@ -12,11 +12,11 @@
 %% See http://www.latex-project.org/lppl.txt
 %% ----------------------------------------------------------------
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesLanguage{belarusianb}[2016/04/07 1.3h Belarusian support for the Babel system]
+\ProvidesLanguage{belarusian}[2016/04/07 1.3h Belarusian support for the Babel system]
 \LdfInit{belarusian}{captionsbelarusian}
 \ifdefined\if@uni@ode
   \PackageError{babel}{if@uni@ode already defined.\MessageBreak
-    Please contact author of belarusianb.ldf}
+    Please contact author of belarusian.ldf}
   \relax
 \fi
 \newif\if@uni@ode
@@ -541,11 +541,11 @@
 %% The package is "maintained" (as per LPPL maintenance status) by
 %% Andrew Shadura.
 %% 
-%% The package consists of the file  belarusianb.dtx
-%% and the derived files             belarusianb.ins,
-%%                                   belarusianb.ldf,
-%%                                   belarusianb.pdf,
+%% The package consists of the file  belarusian.dtx
+%% and the derived files             belarusian.ins,
+%%                                   belarusian.ldf,
+%%                                   belarusian.pdf,
 %%                                   README.
 %% ----------------------------------------------------------------
 %%
-%% End of file `belarusianb.ldf'.
+%% End of file `belarusian.ldf'.

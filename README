@@ -20,9 +20,9 @@ The Current Maintainer is Andrew Shadura <andrew@shadura.me>.
 - run "xelatex.exe belarusian.dtx" (recommended)
   or "pdflatex.exe belarusian.dtx";
   run "tex.exe belarusian.dtx"
-  or "tex.exe belarusianb.ins", if you don't need documentation
-- move "belarusianb.ldf" to <textmf>/tex/generic/babel/contrib/
-- move "belarusianb.pdf" and README to <textmf>/doc/latex/belarusian-babel/
+  or "tex.exe belarusian.ins", if you don't need documentation
+- move "belarusian.ldf" to <textmf>/tex/generic/babel/contrib/
+- move "belarusian.pdf" and README to <textmf>/doc/latex/belarusian-babel/
 - update filename base (see documentation for your TeX system)
 
 2. USAGE
@@ -84,7 +84,7 @@ or
 
 3. DOCUMENTATION
 
-See belarusianb.pdf for more information.
+See belarusian.pdf for more information.
 
 4. KNOWN PROBLEMS
 
