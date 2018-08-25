@@ -17,9 +17,9 @@ The Current Maintainer is Andrew Shadura <andrew@shadura.me>.
 1. INSTALLATION
 
 - unpack babel-belarusian.zip
-- run "xelatex.exe belarusianb.dtx" (recommended)
-  or "pdflatex.exe belarusianb.dtx";
-  run "tex.exe belarusianb.dtx"
+- run "xelatex.exe belarusian.dtx" (recommended)
+  or "pdflatex.exe belarusian.dtx";
+  run "tex.exe belarusian.dtx"
   or "tex.exe belarusianb.ins", if you don't need documentation
 - move "belarusianb.ldf" to <textmf>/tex/generic/babel/contrib/
 - move "belarusianb.pdf" and README to <textmf>/doc/latex/belarusian-babel/

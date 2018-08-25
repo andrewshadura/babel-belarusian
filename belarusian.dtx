@@ -25,12 +25,12 @@ The Current Maintainer is Andrew Shadura <andrew@shadura.me>.
 1. INSTALLATION
 
 - unpack babel-belarusian.zip
-- run "xelatex.exe belarusianb.dtx" (recommended)
-  or "pdflatex.exe belarusianb.dtx";
-  run "tex.exe belarusianb.dtx"
-  or "tex.exe belarusianb.ins", if you don't need documentation
-- move "belarusianb.ldf" to <textmf>/tex/generic/babel/contrib/
-- move "belarusianb.pdf" and README to <textmf>/doc/latex/belarusian-babel/
+- run "xelatex.exe belarusian.dtx" (recommended)
+  or "pdflatex.exe belarusian.dtx";
+  run "tex.exe belarusian.dtx"
+  or "tex.exe belarusian.ins", if you don't need documentation
+- move "belarusian.ldf" to <textmf>/tex/generic/babel/contrib/
+- move "belarusian.pdf" and README to <textmf>/doc/latex/belarusian-babel/
 - update filename base (see documentation for your TeX system)
 
 
@@ -93,7 +93,7 @@ or
 
 3. DOCUMENTATION
 
-See belarusianb.pdf for more information.
+See belarusian.pdf for more information.
 
 
 4. KNOWN PROBLEMS
@@ -153,10 +153,10 @@ version.  The latest version of this license is in the file:
 The package is "maintained" (as per LPPL maintenance status) by
 Andrew Shadura.
 
-The package consists of the file  belarusianb.dtx
-and the derived files             belarusianb.ins,
-                                  belarusianb.ldf,
-                                  belarusianb.pdf,
+The package consists of the file  belarusian.dtx
+and the derived files             belarusian.ins,
+                                  belarusian.ldf,
+                                  belarusian.pdf,
                                   README.
 ----------------------------------------------------------------
 \endpostamble
@@ -184,8 +184,8 @@ and the derived files             belarusianb.ins,
 %</internal>
 %<*code>
 \NeedsTeXFormat{LaTeX2e}
-%\ProvidesFile{belarusianb.ldf}[2016/04/07 1.3h Belarusian support for the Babel system]
-\ProvidesLanguage{belarusianb}[2016/04/07 1.3h Belarusian support for the Babel system]
+%\ProvidesFile{belarusian.ldf}[2016/04/07 1.3h Belarusian support for the Babel system]
+\ProvidesLanguage{belarusian}[2016/04/07 1.3h Belarusian support for the Babel system]
 %</code>
 %<*driver>
 \documentclass[a4paper]{ltxdoc}
@@ -319,8 +319,8 @@ and the derived files             belarusianb.ins,
 %</driver>
 % \fi
 %
-%\GetFileInfo{belarusianb.dtx}
-%\GetFileInfo{belarusianb.ldf}
+%\GetFileInfo{belarusian.dtx}
+%\GetFileInfo{belarusian.ldf}
 %
 %\title{^^A
 %  \textsf{Belarusian} --- description text\thanks{^^A
@@ -348,7 +348,7 @@ and the derived files             belarusianb.ins,
 % The file \file{\filename}\footnote{The file described in this document
 % has the version number \fileversion\ and was last revised on \filedate.}
 % is the source file for the Belarusian Language Definition file
-% \file{belarusianb.ldf} to be loaded by the \babel\ package with
+% \file{belarusian.ldf} to be loaded by the \babel\ package with
 % the option \Lopt{belarusian}. It's based on the Russian language definition
 % file derived by Igor A. Kotelnikov from the original version of \file{\filename}, first
 % released by Olga Lapko and Johannes Braams and then
@@ -357,7 +357,7 @@ and the derived files             belarusianb.ins,
 % file written by Aleksey Novodvorsky based on even older version of the Russian
 % language definition file.
 %
-% Just like \file{russianb.ldf}, \file{belarusianb.ldf} is designed to work both with
+% Just like \file{russianb.ldf}, \file{belarusian.ldf} is designed to work both with
 % legacy non-unicode (8-bit) and new Unicode encodings of the source document
 % files (input encodings) and of the font files (font encodings). This is
 % achieved by excluding (bypassing) the |\cyr...| macros, which map every letter
@@ -369,7 +369,7 @@ and the derived files             belarusianb.ins,
 % release of version 1.2 of \file{russianb.ldf}.
 %
 % Similarly to \file{russianb.ldf}'s support for typesetting ancient and
-% Church Slavonic books, \file{belarusianb.ldf} supports two versions of Belarusian
+% Church Slavonic books, \file{belarusian.ldf} supports two versions of Belarusian
 % orthography, the official one (\Lopt{official}) and the ‘classic’ (Taraškievič)
 % orthography.
 %
@@ -553,12 +553,12 @@ and the derived files             belarusianb.ins,
 % In a multilingual document, some typographic rules are language
 % dependent and should apply to the whole document.
 %
-%^^AAs of version~1.2, \file{belarusianb.ldf} behaves differently
+%^^AAs of version~1.2, \file{belarusian.ldf} behaves differently
 %^^Aaccording to \babel's \emph{main language} defined as the \emph{last}
 %^^Aoption. When Belarusian is
 %^^A|babel|'s main language, it adjusts global layout of the document
 %^^Aaccording to typographical conventions of Belarusian language. Namely,
-%^^A\file{belarusianb.ldf} makes the following changes to global layout even
+%^^A\file{belarusian.ldf} makes the following changes to global layout even
 %^^Ain the parts where Belarusian is not current language:
 %^^A\begin{enumerate}
 %^^A\item
@@ -588,7 +588,7 @@ and the derived files             belarusianb.ins,
 % attribute to \Lopt{classic} in the document preamble as discussed in
 % Sec.~\ref{ssec:spelling}.
 %
-% Since Belarusian has its own numbering system, \file{belarusianb.ldf} adds macros
+% Since Belarusian has its own numbering system, \file{belarusian.ldf} adds macros
 % |\asbuk|\marg{counter} and |\Asbuk|\marg{counter} for formatting numbers appropriately the alphabetic
 % sequence in the Belarusian alphabet. Additional commands are provided
 % to typeset quotes:
@@ -602,7 +602,7 @@ and the derived files             belarusianb.ins,
 %
 % The macro |\Belarusian| is now defined as an alias for
 % |\selectlanguage{belarusian}|, and its ``opponent'' |\English|, existed
-% in \file{belarusianb.ldf} prior to version 1.2 has been removed since the Belarusian
+% in \file{belarusian.ldf} prior to version 1.2 has been removed since the Belarusian
 % language definition file is wrong place for definition of macros which
 % switch to a distinct other language.
 %
@@ -622,7 +622,7 @@ and the derived files             belarusianb.ins,
 %
 % \begin{table}[ht]\centering
 %  \caption{Extra definitions made
-%           by \file{belarusianb.ldf}}\label{tab:belarusian-quote}
+%           by \file{belarusian.ldf}}\label{tab:belarusian-quote}
 %  \medskip
 %  \begin{tabular}{llp{7cm}}
 %  \hline\hline\\[-0.5em]
@@ -693,7 +693,7 @@ and the derived files             belarusianb.ins,
 % By default, active double quote is switched on. It can be switched off
 % any time using |\shorthandoff{"}| and the switched on again using
 % |\shorthandon{"}|. The aliases |\mdqoff| and |\mdqon| for these two macros
-% has been removed from \file{belarusianb.ldf} starting from version 1.3 in favour of
+% has been removed from \file{belarusian.ldf} starting from version 1.3 in favour of
 % the macros |\shorthandon| and |\shorthandoff| provided in the \pkg{babel} core.
 %
 %
@@ -766,7 +766,7 @@ and the derived files             belarusianb.ins,
 % \changes{1.3e}{2014/10/14}{Update documentation}
 % \changes{1.3d}{2014/10/02}{Fix bug in \cs{Proj}}
 % \changes{1.3c}{2014/06/02}{Fix bug in \cs{datebelarusian}}
-% \changes{1.3b}{2013/04/06}{Renamed to belarusianb to work with babel 3.9}
+% \changes{1.3b}{2013/04/06}{Renamed to belarusian to work with babel 3.9}
 % \changes{1.2b}{2013/01/08}{Renamed to belarusianu to work with babel-beta 3.9}
 % \changes{1.2a}{2012/06/06}{Indentation of 1st paragraph removed}
 % \changes{1.1c}{1996/07/11}{Replaced \cs{undefined} with
@@ -814,7 +814,7 @@ and the derived files             belarusianb.ins,
 %    \begin{macrocode}
 \ifdefined\if@uni@ode
   \PackageError{babel}{if@uni@ode already defined.\MessageBreak
-    Please contact author of belarusianb.ldf}
+    Please contact author of belarusian.ldf}
   \relax
 \fi
 \newif\if@uni@ode
@@ -843,7 +843,7 @@ and the derived files             belarusianb.ins,
 %    package in case of \LaTeX\ and by \pkg{fontspec} package in case of
 %    Lua\LaTeX. It matters weather these packages are loaded before of after
 %    \pkg{babel}. In the latter case or if these packages are not loaded at all,
-%    \file{belarusianb.ldf} ignores their effect and tries to provide some
+%    \file{belarusian.ldf} ignores their effect and tries to provide some
 %    reasonable settings. In particular, \texttt{T2A} will be selected for
 %    Belarusian language if \LaTeX\ is running but \texttt{EU1} in case of
 %    Xe\LaTeX\ and \texttt{EU2} in case of Lua\LaTeX.
@@ -856,7 +856,7 @@ and the derived files             belarusianb.ins,
 %    for late loading \pkg{fontenc}. Therefore it does not matter
 %    whether \pkg{babel} is loaded before or after the \pkg{fontenc}.
 %    As of version 1.2, definition of |\latinencoding| was removed from
-%    \file{belarusianb.ldf} since it is overruled in \file{babel.def}.
+%    \file{belarusian.ldf} since it is overruled in \file{babel.def}.
 %    For example, after
 %\begin{verbatim}
 %\usepackage[T1,T2A]{fontenc}
@@ -1032,7 +1032,7 @@ and the derived files             belarusianb.ins,
 %    aliases. We believe that reasonable place for defining these macros
 %    would be \file{englishb.ldf}.
 %    Note also that the macro |\English| and its  alias |\Eng| are absent
-%    in \file{belarusianb.ldf}'s counterpart in the package \pkg{polyglossia},
+%    in \file{belarusian.ldf}'s counterpart in the package \pkg{polyglossia},
 %    analog of \pkg{babel} for Xe\LaTeX.
 %
 % \changes{1.2}{2011/10/20}{Removed \cs{English} macro}
@@ -1663,7 +1663,7 @@ and the derived files             belarusianb.ins,
 %    |\lefthyphenmin| and |\righthyphenmin|; both are set to~2.
 %
 %    As of v.1.2 we removed a definition for |\englishhyphenmins|. It is
-%    not deal of \file{belarusianb.ldf}.
+%    not deal of \file{belarusian.ldf}.
 %
 % \changes{1.1a}{1995/07/04}{use \cs{belarusianhyphenmins} to
 %    store the correct values}
