@@ -523,7 +523,7 @@
 \fi
 \ldf@finish{belarusian}
 %% ----------------------------------------------------------------
-%% Copyright 2016 Andrew Shadura
+%% Copyright 2016 Andrej Shadura
 %% Copyright 2011-2016 Igor A. Kotelnikov.
 %% Copyright 2000 Aleksey Novodvorsky
 %% Copyright 1995-2008 Olga Lapko.
@@ -539,7 +539,7 @@
 %%    http://www.latex-project.org/lppl.txt
 %% 
 %% The package is "maintained" (as per LPPL maintenance status) by
-%% Andrew Shadura.
+%% Andrej Shadura.
 %% 
 %% The package consists of the file  belarusian.dtx
 %% and the derived files             belarusian.ins,
