@@ -1,17 +1,17 @@
-Belarusian language module for Babel, v1.3h
-===========================================
+Belarusian language module for Babel, v1.4
+==========================================
 
 Released under the LaTeX Project Public License v1.3c or later.
 See http://www.latex-project.org/lppl.txt
 
 The package provides support for use of Babel in documents written in Belarusian
-(in both official and "classic" forms). The support is adapted for use both
+(in both official and ‘classic’ forms). The support is adapted for use both
 under legacy TEX engines, and under X∃TEX and LuaTEX.
 
 Based on Russian language module v1.3h by Igor A. Kotelnikov <kia999 at mail dot ru>
 and Belarusian language module v1.1l by Aleksey Novodvorsky <aen@logic.ru>.
 
-The Current Maintainer is Andrej Shadura <andrew@shadura.me>.
+The current maintainer is Andrej Shadura <andrew@shadura.me>.
 
 INSTALLATION
 ------------
@@ -20,7 +20,7 @@ INSTALLATION
 - run `xelatex belarusian.dtx` (recommended)
   or `pdflatex belarusian.dtx`;
   run `tex belarusian.dtx`
-  or `tex belarusian.ins`, if you don't need documentation
+  or `tex belarusian.ins`, if you don’t need documentation
 - move "belarusian.ldf" to ${texmf}/tex/generic/babel/contrib/
 - move "belarusian.pdf" and README to ${texmf}/doc/latex/belarusian-babel/
 - update filename base (see documentation for your TeX system)
@@ -103,6 +103,15 @@ files as they might have stored incompatible internal encodings.
 
 CHANGES
 -------
+
+2018-08-25 version 1.4
+
+  * Rename belarusianb.dtx to belarusian.dtx since the patch to Babel
+    has been never submitted.
+  * Use textcomp package in the documentation.
+  * Formatting fixes.
+  * Convert the README to Markdown.
+  * Rename the Unicode detection macro to fix conflicts with babel-russian.
 
 2016-04-07 version 1.3h
 

@@ -12,16 +12,16 @@
 %% See http://www.latex-project.org/lppl.txt
 %% ----------------------------------------------------------------
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesLanguage{belarusian}[2016/04/07 1.3h Belarusian support for the Babel system]
+\ProvidesLanguage{belarusian}[2018/08/25 1.4 Belarusian support for the Babel system]
 \LdfInit{belarusian}{captionsbelarusian}
-\ifdefined\if@uni@ode
+\ifdefined\if@uni@ode@be
   \PackageError{babel}{if@uni@ode already defined.\MessageBreak
     Please contact author of belarusian.ldf}
   \relax
 \fi
-\newif\if@uni@ode
-\ifdefined\luatexversion \@uni@odetrue \else
-\ifdefined\XeTeXrevision \@uni@odetrue \fi\fi
+\newif\if@uni@ode@be
+\ifdefined\luatexversion \@uni@ode@betrue \else
+\ifdefined\XeTeXrevision \@uni@ode@betrue \fi\fi
 \ifx\l@belarusian\@undefined
   \@nopatterns{Belarusian}
   \adddialect\l@belarusian0
@@ -40,7 +40,7 @@
     \sce@a{##1}{T2C}%
     \sce@a{##1}{T2B}%
     \sce@a{##1}{T2A}%
-    \if@uni@ode
+    \if@uni@ode@be
       \sce@a{##1}{EU1}%
       \sce@a{##1}{EU2}%
     \fi}%
@@ -53,7 +53,7 @@
 \@onlypreamble\sce@c
 \ifdefined\cyrillicencoding
 \else
-  \if@uni@ode
+  \if@uni@ode@be
     \ifdefined\XeTeXrevision
       \edef\cyrillicencoding{EU1}
     \else\ifdefined\luatexversion
@@ -91,7 +91,7 @@
 \fi
 \DeclareTextFontCommand{\textcyrillic}{\cyrillictext}
 \@ifpackageloaded{inputenc}{%
- \if@uni@ode
+ \if@uni@ode@be
    \PackageWarning{babel}{inputenc should not be used with LuaTeX or XeTeX}
  \fi
 }{%
@@ -145,7 +145,7 @@
 \ProvideTextCommandDefault{\cyrdash}{\iflanguage{belarusian}%
     {\hbox to.8em{--\hss--}}{\textemdash}}
 \declare@shorthand{belarusian}{",}{\nobreak\hskip.2em\ignorespaces}
-\if@uni@ode
+\if@uni@ode@be
   %\captionsbelarusian@official
   \addto\captionsbelarusian{%
     \def\prefacename{Прадмова}%   [babel]
@@ -370,7 +370,7 @@
   \fi
   %% =========================================
 \fi
-\if@uni@ode
+\if@uni@ode@be
   \addto\datebelarusian{%
    \def\today{\number\day~\ifcase\month\or
     студзеня\or
@@ -443,7 +443,7 @@
 \addto\extrasbelarusian{\bbl@frenchspacing}
 \addto\noextrasbelarusian{\bbl@nonfrenchspacing}
 \def\Asbuk#1{\expandafter\belarusian@Alph\csname c@#1\endcsname}
-\if@uni@ode
+\if@uni@ode@be
   \def\belarusian@Alph#1{\ifcase#1\or
     А\or Б\or В\or Г\or Д\or Е\or Ж\or
     З\or І\or К\or Л\or М\or Н\or О\or
@@ -458,7 +458,7 @@
     \CYRYA\else\@ctrerr\fi}
 \fi
 \def\asbuk#1{\expandafter\belarusian@alph\csname c@#1\endcsname}
-\if@uni@ode
+\if@uni@ode@be
   \def\belarusian@alph#1{\ifcase#1\or
     а\or б\or в\or г\or д\or е\or ж\or
     з\or і\or к\or л\or м\or н\or о\or
@@ -500,7 +500,7 @@
 \def\cosec{\mathop{\operator@font cosec}\nolimits}
 \def\Prob{\mathop{\kern\z@\mathsf{P}}\nolimits}
 \def\Variance{\mathop{\kern\z@\mathsf{D}}\nolimits}
-\if@uni@ode
+\if@uni@ode@be
   \def\nod{\mathop{\mathrm{н.а.д.}}\nolimits}
   \def\nok{\mathop{\mathrm{н.а.к.}}\nolimits}
   \def\NOD{\mathop{\mathrm{НАД}}\nolimits}
