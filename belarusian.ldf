@@ -523,7 +523,7 @@
 \fi
 \ldf@finish{belarusian}
 %% ----------------------------------------------------------------
-%% Copyright 2016 Andrej Shadura
+%% Copyright 2016, 2018 Andrej Shadura
 %% Copyright 2011-2016 Igor A. Kotelnikov.
 %% Copyright 2000 Aleksey Novodvorsky
 %% Copyright 1995-2008 Olga Lapko.
@@ -545,7 +545,7 @@
 %% and the derived files             belarusian.ins,
 %%                                   belarusian.ldf,
 %%                                   belarusian.pdf,
-%%                                   README.
+%%                                   README.md
 %% ----------------------------------------------------------------
 %%
 %% End of file `belarusian.ldf'.
