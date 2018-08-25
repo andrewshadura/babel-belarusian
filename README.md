@@ -1,6 +1,5 @@
-----------------------------------------------------------------
-
 Belarusian language module for Babel, v1.3h
+===========================================
 
 Released under the LaTeX Project Public License v1.3c or later.
 See http://www.latex-project.org/lppl.txt
@@ -14,22 +13,24 @@ and Belarusian language module v1.1l by Aleksey Novodvorsky <aen@logic.ru>.
 
 The Current Maintainer is Andrej Shadura <andrew@shadura.me>.
 
-1. INSTALLATION
+INSTALLATION
+------------
 
 - unpack babel-belarusian.zip
-- run "xelatex belarusian.dtx" (recommended)
-  or "pdflatex belarusian.dtx";
-  run "tex belarusian.dtx"
-  or "tex belarusian.ins", if you don't need documentation
-- move "belarusian.ldf" to <textmf>/tex/generic/babel/contrib/
-- move "belarusian.pdf" and README to <textmf>/doc/latex/belarusian-babel/
+- run `xelatex belarusian.dtx` (recommended)
+  or `pdflatex belarusian.dtx`;
+  run `tex belarusian.dtx`
+  or `tex belarusian.ins`, if you don't need documentation
+- move "belarusian.ldf" to ${texmf}/tex/generic/babel/contrib/
+- move "belarusian.pdf" and README to ${texmf}/doc/latex/belarusian-babel/
 - update filename base (see documentation for your TeX system)
 
-2. USAGE
+USAGE
+-----
 
 Belarusian language definition file can be used both with legacy 8-bit engines
-(such as latex or pdflatex) and Unicode compilers (xelatex or
-lualatex). The Unicode engines can be ran either in Unicode mode or 8-bit
+(such as latex or pdflatex) and Unicode compilers (xelatex or lualatex).
+The Unicode engines can be ran either in Unicode mode or 8-bit
 compatibility mode, which emulates the legacy engines. The two modes differ by
 a set of packages loaded in the preamble of a source TeX file. It is important
 to keep recommended order of the packages loaded, especially when running
@@ -37,28 +38,28 @@ Unicode engines in a compatibility 8-bit mode.
 
 In the examples below, it is assumed that a source file has utf8 input encoding.
 
-2.1. 8-bit mode
+### 8-bit mode
 
-2.1.1 PDFLATeX, LaTeX
+#### PDFLATeX, LaTeX
 
     \usepackage[T1,T2A]{fontenc}
     \usepackage[utf8]{inputenc}
     \usepackage[english,belarusian]{babel}
 
-2.1.2 LuaLaTeX
+#### LuaLaTeX
 
     \usepackage[T1,T2A]{fontenc}
     \usepackage[lutf8]{luainputenc}
     \usepackage[english,belarusian]{babel}
 
-2.1.3 XeLaTeX
+#### XeLaTeX
 
     \XeTeXinputencoding "bytes"
     \usepackage[utf8]{inputenc}
     \usepackage[T2A]{fontenc}
     \usepackage[english,belarusian]{babel}
 
-2.2 Unicode mode, LuaLaTeX or XeLaTeX
+### Unicode mode, LuaLaTeX or XeLaTeX
 
     \usepackage{fontspec}
         \defaultfontfeatures{Ligatures={TeX}}
@@ -70,35 +71,43 @@ In the examples below, it is assumed that a source file has utf8 input encoding.
 Instead of the Computer Modern Unicode (CMU) fonts loaded in this example,
 you may use any True Type or Open Type fonts installed on your computer.
 
-2.3 Using "classic" (Taraškievič) spelling
+### Using "classic" (Taraškievič) spelling
 
     \usepackage[english,belarusian]{babel}
     \languageattribute{belarusian}{classic}
+
 or
+
     \usepackage[english,belarusian.classic]{babel}
+
 or
+
     \usepackage[english,belarusian]{babel}
     \languageattribute{belarusian}{tarask}
+
 or
+
     \usepackage[english,belarusian.tarask]{babel}
 
-3. DOCUMENTATION
+DOCUMENTATION
+-------------
 
 See belarusian.pdf for more information.
 
-4. KNOWN PROBLEMS
+KNOWN PROBLEMS
+--------------
 
 Before switching from a legacy 8-bit engine (tex, pdftex) to an Unicode
 engine (xetex, luatex) and vise versa delete all .aux, .toc, .lot, .lof
 files as they might have stored incompatible internal encodings.
 
-5. CHANGES
+CHANGES
+-------
 
 2016-04-07 version 1.3h
 
-    * Initial version
+  * Initial version
 
-Original source:  russianb.dtx,
-    2016-02-18 v1.3h Russian support from the babel system.
+Original source: russianb.dtx
 
-----------------------------------------------------------------
+2016-02-18 v1.3h Russian support from the babel system.
