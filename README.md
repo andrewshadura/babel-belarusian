@@ -1,4 +1,4 @@
-Belarusian language module for Babel, v1.4
+Belarusian language module for Babel, v1.5
 ==========================================
 
 Released under the LaTeX Project Public License v1.3c or later.
@@ -13,7 +13,7 @@ and Belarusian language module v1.1l by Aleksey Novodvorsky <aen@logic.ru>.
 
 The current maintainer is Andrej Shadura <andrew@shadura.me>.
 
-INSTALLATION
+Installation
 ------------
 
 - unpack babel-belarusian.zip
@@ -25,7 +25,7 @@ INSTALLATION
 - move "belarusian.pdf" and README to ${texmf}/doc/latex/belarusian-babel/
 - update filename base (see documentation for your TeX system)
 
-USAGE
+Usage
 -----
 
 Belarusian language definition file can be used both with legacy 8-bit engines
@@ -89,20 +89,25 @@ or
 
     \usepackage[english,belarusian.tarask]{babel}
 
-DOCUMENTATION
+Documentation
 -------------
 
 See belarusian.pdf for more information.
 
-KNOWN PROBLEMS
+Known problems
 --------------
 
 Before switching from a legacy 8-bit engine (tex, pdftex) to an Unicode
 engine (xetex, luatex) and vise versa delete all .aux, .toc, .lot, .lof
 files as they might have stored incompatible internal encodings.
 
-CHANGES
+Changes
 -------
+
+2018-10-09 version 1.5
+
+  * Replace \cyrmath with \textnormal.
+    Patch by Ivan Kokan.
 
 2018-08-25 version 1.4
 
