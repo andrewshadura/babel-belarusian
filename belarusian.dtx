@@ -5,7 +5,7 @@
 \iffalse
 %</internal>
 %<*readme>
-Belarusian language module for Babel, v1.4
+Belarusian language module for Babel, v1.5
 ==========================================
 
 Released under the LaTeX Project Public License v1.3c or later.
@@ -115,6 +115,11 @@ files as they might have stored incompatible internal encodings.
 Changes
 -------
 
+2018-10-09 version 1.5
+
+  * Replace \cyrmath with \textnormal.
+    Patch by Ivan Kokan.
+
 2018-08-25 version 1.4
 
   * Rename belarusianb.dtx to belarusian.dtx since the patch to Babel
@@ -202,8 +207,8 @@ and the derived files             belarusian.ins,
 %</internal>
 %<*code>
 \NeedsTeXFormat{LaTeX2e}
-%\ProvidesFile{belarusian.ldf}[2018/08/25 1.4 Belarusian support for the Babel system]
-\ProvidesLanguage{belarusian}[2018/08/25 1.4 Belarusian support for the Babel system]
+%\ProvidesFile{belarusian.ldf}[2018/10/09 1.5 Belarusian support for the Babel system]
+\ProvidesLanguage{belarusian}[2018/10/09 1.5 Belarusian support for the Babel system]
 %</code>
 %<*driver>
 \documentclass[a4paper]{ltxdoc}
